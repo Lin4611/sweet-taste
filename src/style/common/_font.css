@@ -1,13 +1,14 @@
-@theme{
-    /* font-family 字體家族 */
-    --font-PingFangTc:"PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Helvetica Neue", Arial, ui-sans-serif, system-ui, sans-serif;
-    --font-Times:"Times New Roman", Times, serif;
-    --font-Neue:"Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
-    /* === 字級 === */
-    --text-title:24px;
-    --text-subtitle:20px;
-    --text-body:16px;
-     /* === 行高 (leading) === */
-    --leading-24: 24px;
-    --leading-20: 20px;
+@theme {
+  /* font-family 字體家族 */
+  --font-PingFangTc: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei",
+    "Helvetica Neue", Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-Times: "Times New Roman", Times, serif;
+  --font-Neue: "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+  /* === 字級 === */
+  --text-title: 24px;
+  --text-subtitle: 20px;
+  --text-body: 16px;
+  /* === 行高 (leading) === */
+  --leading-24: 24px;
+  --leading-20: 20px;
 }
