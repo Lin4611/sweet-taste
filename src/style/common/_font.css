@@ -3,10 +3,8 @@
     --font-PingFangTc:"PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Helvetica Neue", Arial, ui-sans-serif, system-ui, sans-serif;
     --font-Times:"Times New Roman", Times, serif;
     --font-Neue:"Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
-    --font-Yumincho: "YuMincho", "Hiragino Mincho Pro", "MS Mincho", serif;
     /* === 字級 === */
-    --text-title:24px
-    --text-subtitle:20px
-    --text-body:16px
-
+    --text-title:24px;
+    --text-subtitle:20px;
+    --text-body:16px;
 }

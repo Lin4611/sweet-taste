@@ -7,3 +7,6 @@ body{
     font-family: var(--font-PingFangTc);
     font-size: var(--text-body);
 }
+.vertical-text {
+  writing-mode: vertical-rl;
+}
