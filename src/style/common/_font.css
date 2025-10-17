@@ -7,4 +7,7 @@
     --text-title:24px;
     --text-subtitle:20px;
     --text-body:16px;
+     /* === 行高 (leading) === */
+    --leading-24: 24px;
+    --leading-20: 20px;
 }
