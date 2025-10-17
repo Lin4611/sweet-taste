@@ -5,18 +5,23 @@ interface CategoryCardProps{
     title:string;
     bgColor?:string;
     textColor?:string;
+    textWeight?:string;
+    border?:string;
 }
 const CategoryCard: React.FC<CategoryCardProps> = ({
     imgUrl,
     title,
     bgColor,
-    textColor}) => {
+    textColor,
+    textWeight='font-semibold',
+    border
+    }) => {
         return(
-            <section className="w-[125px] h-auto overflow-hidden relative ">
+            <section className={`w-[125px] h-auto overflow-hidden relative ${border}`}>
                 <img src={imgUrl} alt="" className="w-full h-full object-cover" />
                 <div className={`absolute inset-0 ${bgColor} backdrop-blur-[5px]`}></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                    <p className={`font-semibold text-subtitle ${textColor} vertical-text`}>
+                    <p className={`${textWeight} text-subtitle ${textColor} vertical-text leading-24`}>
                         {title}
                     </p>
                 </div>
