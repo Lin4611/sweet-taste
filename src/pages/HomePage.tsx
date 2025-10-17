@@ -1,5 +1,10 @@
+import type { FC } from "react"
 
-const HomePage = ()=>{
-
+const HomePage:FC = ()=>{
+    return(
+        <>
+            
+        </>
+    )
 }
 export default HomePage
