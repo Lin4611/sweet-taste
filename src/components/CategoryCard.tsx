@@ -17,7 +17,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
     border
     }) => {
         return(
-            <section className={`w-[125px] h-auto overflow-hidden relative ${border}`}>
+            <section className={`max-h-[180px] overflow-hidden relative ${border} lg:max-h-[256px]`}>
                 <img src={imgUrl} alt="" className="w-full h-full object-cover" />
                 <div className={`absolute inset-0 ${bgColor} backdrop-blur-[5px]`}></div>
                 <div className="absolute inset-0 flex items-center justify-center">

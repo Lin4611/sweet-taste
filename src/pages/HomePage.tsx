@@ -8,31 +8,32 @@ const HomePage:FC = ()=>{
     return(
         <>
             <main className="w-full mx-auto lg:px-[42px]">
-                <img src={banner} alt="" className="w-full h-auto object-cover lg:h-[496px]" />
-                <section className="w-full flex">
-                    <CategoryCard 
-                    imgUrl={today}
-                    title='本日精選'
-                    bgColor="bg-accent/80"
-                    textColor="text-primary"
-                    />
-                    <CategoryCard 
-                    imgUrl={popular}
-                    title='人氣推薦'
-                    bgColor="bg-primary/80"
-                    textColor="text-invert"
-                    textWeight="font-light"
-                    border="border-l-[1px] border-r-[1px] border-white"
-                    />
-                    <CategoryCard 
-                    imgUrl={new_product_pic}
-                    title='新品上市'
-                    bgColor="bg-primary/80"
-                    textColor="text-invert" 
-                    textWeight="font-light"
-                    />
-                    
-                </section>
+                <div className='relative'>
+                    <img src={banner} alt="banner" className="w-full h-auto object-cover lg:h-[496px]" />
+                    <section className="mx-auto w-full grid grid-cols-3 lg:px-[42px] lg:absolute lg:top-[407px]">
+                        <CategoryCard 
+                        imgUrl={today}
+                        title='本日精選'
+                        bgColor="bg-accent/80"
+                        textColor="text-primary"
+                        />
+                        <CategoryCard 
+                        imgUrl={popular}
+                        title='人氣推薦'
+                        bgColor="bg-primary/80"
+                        textColor="text-invert"
+                        textWeight="font-light"
+                        border="border-x-[1px] border-white"
+                        />
+                        <CategoryCard 
+                        imgUrl={new_product_pic}
+                        title='新品上市'
+                        bgColor="bg-primary/80"
+                        textColor="text-invert" 
+                        textWeight="font-light"
+                        />  
+                    </section>
+                </div>
             </main>
         </>
     )
