@@ -1,5 +1,6 @@
+import type { FC } from 'react'
 import logo from '../assets/img/logo/logo-all-dark.svg'
-const Navbar = () =>{
+const Navbar:FC = () =>{
     return (
         <header className='w-full mx-auto py-[30px] sticky top-0 z-[100] bg-white'>
                 <nav className='max-w-[92%] mx-auto flex items-center'>
