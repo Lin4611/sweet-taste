@@ -6,8 +6,8 @@ import today from '../assets/img/today.avif'
 const HomePage:FC = ()=>{
     return(
         <>
-            <main className="w-full">
-                <img src={banner} alt="" className="w-full h-auto object-cover" />
+            <main className="w-full mx-auto lg:px-[42px]">
+                <img src={banner} alt="" className="w-full h-auto object-cover lg:h-[496px]" />
                 <section className="w-full flex">
                     <section className="w-[125px] h-auto overflow-hidden relative ">
                         <img src={today} alt="" className="w-full h-full object-cover" />
