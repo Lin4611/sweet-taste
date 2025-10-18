@@ -8,13 +8,13 @@ const HomePage: FC = () => {
   return (
     <>
       <main className="w-full mx-auto lg:px-[42px]">
-        <div className="relative">
+        
           <img
             src={banner}
             alt="banner"
             className="w-full h-auto object-cover lg:h-[496px]"
           />
-          <section className="mx-auto w-full grid grid-cols-3 lg:px-[42px] lg:absolute lg:top-[407px]">
+          <section className="mx-auto w-full grid grid-cols-3 lg:px-[42px] lg:mt-[-89px]">
             <CategoryCard
               imgUrl={today}
               title="本日精選"
@@ -37,7 +37,6 @@ const HomePage: FC = () => {
               textWeight="font-light"
             />
           </section>
-        </div>
         <section className="flex w-full">
           <img src="" alt="" />
         </section>
