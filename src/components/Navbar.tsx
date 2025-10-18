@@ -1,13 +1,20 @@
-import type { FC } from "react";
+import { useState, type FC } from "react";
 import logo from "../assets/img/logo/logo-all-dark.svg";
 import cart from "../assets/img/icon/shopping_cart.png";
 import logo_phone from "../assets/img/logo/logotype-sm-dark.svg";
 import menu_icon from "../assets/img/icon/dehaze-24px.png";
+
 const Navbar: FC = () => {
+  const [navbarShow, setNavbarShow] = useState<boolean>(false);
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {
+    setNavbarShow(!navbarShow);
+  };
   return (
-    <header className="w-full mx-auto sticky top-0 z-[100] bg-white py-[30px] lg:py-[30px] lg:sticky">
+    <header className="w-full mx-auto sticky top-0 z-[100] bg-white py-[36px] lg:py-[30px] lg:sticky">
       <nav className="mx-auto flex items-center justify-between w-full px-[33px] lg:max-w-[92%]">
-        <img src={menu_icon} alt="menu" className="blcok lg:hidden" />
+        <button type="button" onClick={handleClick} className="blcok active:bg-accent/30 rounded-2xl lg:hidden">
+          <img src={menu_icon} alt="menu"/>
+        </button>
         <img
           src={logo}
           alt="logo"
@@ -18,14 +25,11 @@ const Navbar: FC = () => {
           alt="logo"
           className="block h-[18px] w-auto object-cover lg:hidden"
         />
-        <div
-          className="items-center justify-between
-                                    lg:flex lg:max-w-[34%] lg:w-full"
-        >
+        <div className="items-center justify-between lg:flex lg:max-w-[34%] lg:w-full">
           <div className="hidden lg:max-w-[70%] lg:flex w-full items-center justify-between">
-            <span className="text-primary font-semibold">首頁</span>
-            <span className="text-primary font-semibold">甜點</span>
-            <span className="text-primary font-semibold">登入</span>
+            <a href="#" className="text-primary font-semibold hover:text-xl hover:shadow-2xl hover:shadow-primary">首頁</a>
+            <a href="#" className="text-primary font-semibold hover:text-xl hover:shadow-2xl hover:shadow-primary">甜點</a>
+            <a href="#" className="text-primary font-semibold hover:text-xl hover:shadow-2xl hover:shadow-primary">登入</a>
           </div>
           <img
             src={cart}
@@ -34,6 +38,13 @@ const Navbar: FC = () => {
           />
         </div>
       </nav>
+      <div className={`lg:hidden fixed left-0 right-0 bg-white shadow-lg transition-all duration-300 ease-in-out overflow-hidden ${navbarShow ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className="flex flex-col w-full items-center pt-[36px]">
+            <a href="#" className="text-primary font-semibold hover:text-xl active:bg-accent/30 active:rounded-2xl" onClick={()=>{setNavbarShow(false)}}>首頁</a>
+            <a href="#" className="text-primary font-semibold hover:text-xl active:bg-accent/30 active:rounded-2xl" onClick={()=>{setNavbarShow(false)}}>甜點</a>
+            <a href="#" className="text-primary font-semibold hover:text-xl active:bg-accent/30 active:rounded-2xl" onClick={()=>{setNavbarShow(false)}}>登入</a>
+          </div>
+      </div>
     </header>
   );
 };
