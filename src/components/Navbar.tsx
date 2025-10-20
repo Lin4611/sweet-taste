@@ -10,7 +10,7 @@ const Navbar: FC = () => {
     setNavbarShow(!navbarShow);
   };
   return (
-    <header className="w-full mx-auto sticky top-0 z-[100] bg-white py-[36px] lg:py-[30px] lg:sticky">
+    <header className=" w-full mx-auto sticky top-0 z-[100] bg-white py-[36px] lg:py-[30px] lg:sticky lg:max-w-[1024px]">
       <nav className="mx-auto flex items-center justify-between w-full px-[33px] lg:max-w-[92%]">
         <button type="button" onClick={handleClick} className="blcok active:bg-accent/30 rounded-2xl lg:hidden">
           <img src={menu_icon} alt="menu"/>
