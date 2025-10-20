@@ -24,7 +24,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
       <div className={`absolute inset-0 ${bgColor} backdrop-blur-[5px]`}></div>
       <div className="absolute inset-0 flex items-center justify-center">
         <p
-          className={`${textWeight} text-subtitle ${textColor} vertical-text leading-24`}
+          className={`${textWeight} text-subtitle ${textColor} vertical-text leading-24 tracking-[0.24rem] lg:tracking-[0.3rem]`}
         >
           {title}
         </p>
