@@ -9,9 +9,9 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ imgUrl, title, price }) => {
   return (
     <>
-      <section className="w-[300px] h-auto flex flex-col mx-auto relative">
+      <section className="w-full max-w-[300px] h-auto flex flex-col mx-auto relative">
         <figure className="h-[315px] w-full">
-          <img src={imgUrl} alt="" className="h-full w-full object-cover" />
+          <img src={imgUrl} alt="" className="h-auto w-full object-cover aspect-square" />
         </figure>
         <section className="flex w-full h-[56px] items-center justify-between">
           <p className="text-subtitle text-primary/100 font-light leading-5 flex justify-center items-center h-full w-[173px] border-x-1 border-soft">
