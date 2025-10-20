@@ -190,17 +190,31 @@ const HomePage: FC = () => {
             <img
               src={want_to_eat_no_reason_title}
               alt=""
-              className="w-full h-auto object-cover"
+              className="w-full h-auto object-cover block lg:hidden"
             />
           </figure>
-          {productList.map((p, i) => (
-            <ProductCard
-              imgUrl={p.imgUrl}
-              title={p.title}
-              price={p.price}
-              key={i}
-            />
-          ))}
+          <section className="w-full max-w-[315px] mx-auto lg:hidden">
+            <div
+              className="overflow-hidden"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
+              <div
+                className="flex transition-transform duration-300 ease-out"
+                style={{ transform: `translateX(-${current * 100}%)` }}
+              >
+                {productList.map((p, i) => (
+                  <div className="min-w-full  flex-shrink-0" key={i}>
+                    <ProductCard
+                      imgUrl={p.imgUrl}
+                      title={p.title}
+                      price={p.price}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
         </section>
       </main>
     </>
