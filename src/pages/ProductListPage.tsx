@@ -1,9 +1,10 @@
-import { useMemo, useState, type FC } from "react";
+import { useEffect, useMemo, useState, type FC } from "react";
 import banner_pic from "../assets/img/banner.png";
 import btnPrev from "../assets/img/icon/arrow_left.png";
 import btnNext from "../assets/img/icon/arrow_right.png";
 import ProductCard from "../components/ProductCard";
 import { productList } from "../data/productList";
+import { getVisiblePages } from "../utils/pagination";
 const mobileItems: number = 3;
 const desktopItems: number = 6;
 const ProductListPage: FC = () => {
@@ -16,15 +17,26 @@ const ProductListPage: FC = () => {
     const start = (currentPage - 1) * itemsPrePage;
     const end = start + itemsPrePage;
     return productList.slice(start, end);
-  }, [productList, currentPage]);
+  }, [productList, currentPage, itemsPrePage]);
   const goToPrev = () => setCurrentPage((p) => Math.max(1, p - 1));
   const goToNext = () => setCurrentPage((p) => Math.min(totalPages, p + 1));
+
+  const visiblePages = getVisiblePages(currentPage, totalPages);
+
   const goToPages = (page: number) => {
     if (page < 1 || page > totalPages) return;
     setCurrentPage(page);
   };
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width:640px)");
+    const handleResize = (e: MediaQueryListEvent) => {
+      setItemsPrePage(e.matches ? mobileItems : desktopItems);
+      setCurrentPage(1);
+    };
 
-  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+    mediaQuery.addEventListener("change", handleResize);
+    return () => mediaQuery.removeEventListener("change", handleResize);
+  }, []);
   return (
     <>
       <main className="w-full mx-auto lg:max-w-[1024px]">
@@ -63,23 +75,26 @@ const ProductListPage: FC = () => {
                   />
                 ))}
               </section>
-              <section className="flex justify-center col-span-full text-subtitle font-light text-primary self-end">
+              <section className="flex justify-center col-span-full text-subtitle font-light text-primary lg:self-end">
                 <button
                   type="button"
                   onClick={goToPrev}
                   disabled={currentPage === 1}
-                  className={`h-[60px] w-[60px] flex justify-center items-center border border-soft hover:bg-soft active:bg-soft ${
+                  className={`w-[40px] h-[40px] flex justify-center items-center border border-soft lg:h-[60px] lg:w-[60px] hover:bg-soft active:bg-soft ${
                     currentPage === 1 ? "opacity-40 cursor-not-allowed" : ""
                   }`}
                 >
                   <img src={btnPrev} alt="" className="w-6 h-6 object-cover" />
                 </button>
-                {pageNumbers.map((n) => (
+                {visiblePages.map((n, i) => (
                   <button
                     type="button"
-                    key={n}
-                    onClick={() => goToPages(n)}
-                    className={`h-[60px] w-[60px] flex justify-center items-center border border-soft ${currentPage === n ? "bg-primary text-invert": ""}  hover:bg-primary hover:text-invert active:bg-primary active:text-invert`}
+                    key={i}
+                    onClick={() => typeof n === "number" && goToPages(n)}
+                    disabled={n === "..."}
+                    className={`w-[40px] h-[40px] flex justify-center items-center lg:h-[60px] lg:w-[60px] border border-soft ${
+                      currentPage === n ? "bg-primary text-invert" : ""
+                    } hover:bg-primary hover:text-invert active:bg-primary active:text-invert disabled:cursor-default disabled:opacity-50`}
                   >
                     {n}
                   </button>
@@ -88,7 +103,7 @@ const ProductListPage: FC = () => {
                   type="button"
                   onClick={goToNext}
                   disabled={currentPage === totalPages}
-                  className={`h-[60px] w-[60px] flex justify-center items-center border border-soft hover:bg-soft active:bg-soft ${
+                  className={`w-[40px] h-[40px] flex justify-center items-center lg:h-[60px] lg:w-[60px] border border-soft hover:bg-soft active:bg-soft ${
                     currentPage === totalPages
                       ? "opacity-40 cursor-not-allowed"
                       : ""
