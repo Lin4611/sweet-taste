@@ -34,7 +34,7 @@ const Navbar: FC = () => {
           <img
             src={cart}
             alt=""
-            className="h-[24px] w-auto object-cover aspect-square"
+            className="h-[24px] w-auto object-cover aspect-square hover:h-[30px] hover:shadow-lg hover:shadow-accent hover:rounded-2xl active:h-[30px]"
           />
         </div>
       </nav>
