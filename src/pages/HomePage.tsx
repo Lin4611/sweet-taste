@@ -63,7 +63,7 @@ const HomePage: FC = () => {
 
   return (
     <>
-      <main className="w-full mx-auto max-w-[1024px]">
+      <main className="w-full mx-auto lg:max-w-[1024px]">
         <section className="w-full mx-auto lg:px-[42px] lg:mb-5">
           <img
             src={banner}
