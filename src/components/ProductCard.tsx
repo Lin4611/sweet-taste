@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import heart from "../assets/img/icon/favorite_border.png";
+import heart_fill from "../assets/img/icon/heart-fill.svg";
 interface ProductCardProps {
   imgUrl: string;
   title: string;
@@ -7,11 +8,17 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ imgUrl, title, price }) => {
+  const [addlike, setAddLike] = useState(false);
+  const hadnleClick = () => setAddLike(!addlike);
   return (
     <>
       <section className="w-full h-[436px] flex flex-col mx-auto relative">
         <figure className="h-[315px] w-full">
-          <img src={imgUrl} alt="" className="h-[315px] w-full object-cover aspect-square" />
+          <img
+            src={imgUrl}
+            alt=""
+            className="h-[315px] w-full object-cover aspect-square"
+          />
         </figure>
         <section className="flex h-[56px] items-center justify-between">
           <p className="text-subtitle text-primary/100 font-light leading-5 flex justify-center items-center h-full w-[173px] border-x-1 border-soft">
@@ -23,7 +30,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ imgUrl, title, price }) => {
         </section>
         <button
           type="button"
-          className="w-full h-[65px] bg-soft/100 border-1 border-soft text-title text-primary leading-5 flex justify-center items-center"
+          className="w-full h-[65px] bg-soft/100 border-1 border-soft text-title text-primary leading-5 flex justify-center items-center 
+          active:bg-primary/100 active:text-invert hover:bg-primary/100 hover:text-invert" 
         >
           加入購物車
         </button>
@@ -33,9 +41,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ imgUrl, title, price }) => {
           </div>
           <button
             type="button"
-            className="w-[24px] h-[24px] mt-[19px]"
+            className="w-[24px] h-[24px] mt-[19px] hover:shadow-lg shadow-primary rounded-2xl transition-shadow duration-300 scale-105"
+            onClick={hadnleClick}
           >
-            <img src={heart} alt="" className="w-full h-auto object-cover" />
+            <img
+              src={addlike ? heart_fill : heart}
+              alt=""
+              className="w-full h-auto object-cover"
+            />
           </button>
         </section>
       </section>
