@@ -1,65 +1,30 @@
-import { type FC } from "react";
+import { useMemo, useState, type FC } from "react";
 import banner_pic from "../assets/img/banner.png";
-import p1 from "../assets/img/p-1.png";
-import p2 from "../assets/img/p-2.png";
-import p3 from "../assets/img/p-3.png";
-import p4 from "../assets/img/p-4.png";
-import p5 from "../assets/img/p-5.png";
-import p6 from "../assets/img/p-6.png";
-// import p7 from "../assets/img/p-7.avif";
-// import p8 from "../assets/img/p-8.avif";
-// import p9 from "../assets/img/p-9.avif";
-import btn_prev from "../assets/img/icon/arrow_left.png";
-import btn_next from "../assets/img/icon/arrow_right.png";
+import btnPrev from "../assets/img/icon/arrow_left.png";
+import btnNext from "../assets/img/icon/arrow_right.png";
 import ProductCard from "../components/ProductCard";
-const productList = [
-  {
-    imgUrl: p1,
-    title: "焦糖瑪卡龍",
-    price: "NT$ 450",
-  },
-  {
-    imgUrl: p2,
-    title: "抹茶紅豆蛋糕",
-    price: "NT$ 480",
-  },
-  {
-    imgUrl: p3,
-    title: "藍莓生乳酪",
-    price: "NT$ 420",
-  },
-  {
-    imgUrl: p4,
-    title: "草莓塔",
-    price: "NT$ 490",
-  },
-  {
-    imgUrl: p5,
-    title: "提拉米蘇",
-    price: "NT$ 500",
-  },
-  {
-    imgUrl: p6,
-    title: "覆盆子慕斯",
-    price: "NT$ 460",
-  },
-  //   {
-  //     imgUrl: p7,
-  //     title: "香草布丁",
-  //     price: "NT$ 350",
-  //   },
-  //   {
-  //     imgUrl: p8,
-  //     title: "巧克力布朗尼",
-  //     price: "NT$ 390",
-  //   },
-  //   {
-  //     imgUrl: p9,
-  //     title: "檸檬塔",
-  //     price: "NT$ 430",
-  //   },
-];
+import { productList } from "../data/productList";
+const mobileItems: number = 3;
+const desktopItems: number = 6;
 const ProductListPage: FC = () => {
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [itemsPrePage, setItemsPrePage] = useState(
+    window.matchMedia("(max-width:640px)").matches ? mobileItems : desktopItems
+  );
+  const totalPages = Math.ceil(productList.length / itemsPrePage);
+  const pageProducts = useMemo(() => {
+    const start = (currentPage - 1) * itemsPrePage;
+    const end = start + itemsPrePage;
+    return productList.slice(start, end);
+  }, [productList, currentPage]);
+  const goToPrev = () => setCurrentPage((p) => Math.max(1, p - 1));
+  const goToNext = () => setCurrentPage((p) => Math.min(totalPages, p + 1));
+  const goToPages = (page: number) => {
+    if (page < 1 || page > totalPages) return;
+    setCurrentPage(page);
+  };
+
+  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
   return (
     <>
       <main className="w-full mx-auto lg:max-w-[1024px]">
@@ -88,8 +53,8 @@ const ProductListPage: FC = () => {
               </li>
             </ul>
             <div className="flex flex-col gap-[30px] items-center">
-              <section className=" px-[30px] grid grid-cols-1 gap-5 lg:grid-cols-2 lg:p-0">
-                {productList.map((p, i) => (
+              <section className="py-[30px] px-[30px] grid grid-cols-1 gap-5 lg:grid-cols-2 lg:p-0">
+                {pageProducts.map((p, i) => (
                   <ProductCard
                     key={i}
                     imgUrl={p.imgUrl}
@@ -101,33 +66,35 @@ const ProductListPage: FC = () => {
               <section className="flex justify-center col-span-full text-subtitle font-light text-primary self-end">
                 <button
                   type="button"
-                  className="h-[60px] w-[60px] flex justify-center items-center border border-soft hover:bg-soft active:bg-soft"
+                  onClick={goToPrev}
+                  disabled={currentPage === 1}
+                  className={`h-[60px] w-[60px] flex justify-center items-center border border-soft hover:bg-soft active:bg-soft ${
+                    currentPage === 1 ? "opacity-40 cursor-not-allowed" : ""
+                  }`}
                 >
-                  <img src={btn_prev} alt="" className="w-6 h-6 object-cover" />
+                  <img src={btnPrev} alt="" className="w-6 h-6 object-cover" />
                 </button>
+                {pageNumbers.map((n) => (
+                  <button
+                    type="button"
+                    key={n}
+                    onClick={() => goToPages(n)}
+                    className={`h-[60px] w-[60px] flex justify-center items-center border border-soft ${currentPage === n ? "bg-primary text-invert": ""}  hover:bg-primary hover:text-invert active:bg-primary active:text-invert`}
+                  >
+                    {n}
+                  </button>
+                ))}
                 <button
                   type="button"
-                  className="h-[60px] w-[60px] flex justify-center items-center border border-soft  hover:bg-primary hover:text-invert active:bg-primary active:text-invert"
+                  onClick={goToNext}
+                  disabled={currentPage === totalPages}
+                  className={`h-[60px] w-[60px] flex justify-center items-center border border-soft hover:bg-soft active:bg-soft ${
+                    currentPage === totalPages
+                      ? "opacity-40 cursor-not-allowed"
+                      : ""
+                  }`}
                 >
-                  1
-                </button>
-                <button
-                  type="button"
-                  className="h-[60px] w-[60px] flex justify-center items-center border border-soft hover:bg-primary hover:text-invert active:bg-primary active:text-invert"
-                >
-                  2
-                </button>
-                <button
-                  type="button"
-                  className="h-[60px] w-[60px] flex justify-center items-center border border-soft hover:bg-primary hover:text-invert active:bg-primary active:text-invert"
-                >
-                  3
-                </button>
-                <button
-                  type="button"
-                  className="h-[60px] w-[60px] flex justify-center items-center border border-soft hover:bg-soft active:bg-soft"
-                >
-                  <img src={btn_next} alt="" className="w-6 h-6 object-cover" />
+                  <img src={btnNext} alt="" className="w-6 h-6 object-cover" />
                 </button>
               </section>
             </div>
