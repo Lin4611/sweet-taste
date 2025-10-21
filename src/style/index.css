@@ -1,4 +1,14 @@
 @import "tailwindcss";
 
-@import './common/_color.css';
-@import './common/_color.css';
+@import "./common/_color.css";
+@import "./common/_font.css";
+
+body {
+  font-family: var(--font-PingFangTc);
+  font-size: var(--text-body);
+}
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+

@@ -1,8 +1,8 @@
-@theme{
-     /* === 顏色（文字主題）=== */
-  --color-text-primary: #3F5D45; /* 深綠主色 */
-  --color-text-accent: #FFE180;  /* 奶油黃強調 */
-  --color-text-soft: #EAF0ED;    /* 灰綠底白字 */
-  --color-text-muted: #8DA291;   /* 輔助文字 */
-  --color-text-invert: #FFFFFF;  /* 白字（深底用） */
+@theme {
+  /* === 顏色（文字主題）=== */
+  --color-primary: #3f5d45; /* 深綠主色 */
+  --color-accent: #ffe180; /* 奶油黃強調 */
+  --color-soft: #eaf0ed; /* 灰綠底白字 */
+  --color-muted: #8da291; /* 輔助文字 */
+  --color-invert: #ffffff; /* 白字（深底用） */
 }
