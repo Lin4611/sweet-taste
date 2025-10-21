@@ -139,7 +139,7 @@ const HomePage: FC = () => {
                 <img
                   src={why_make_dessert_title}
                   alt=""
-                  className="w-full h-auto object-cover"
+                  className="w-[196px] h-[60px] object-cover"
                 />
               </figure>
               <img
@@ -165,7 +165,7 @@ const HomePage: FC = () => {
                 <img
                   src={why_eat_dessert_title}
                   alt=""
-                  className="w-full h-auto object-cover"
+                  className="w-[196px] h-[60px] object-cover"
                 />
               </figure>
               <img
@@ -192,7 +192,7 @@ const HomePage: FC = () => {
               <img
                 src={want_to_eat_no_reason_title}
                 alt=""
-                className="w-full h-auto object-cover block lg:hidden"
+                className="w-[226px] h-[60px] object-cover block lg:hidden"
               />
               <img
                 src={want_to_eat_no_reason_title_desktop}
