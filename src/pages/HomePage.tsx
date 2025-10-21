@@ -80,7 +80,8 @@ const HomePage: FC = () => {
             <CategoryCard imgUrl={new_product_pic} title="新品上市" />
           </section>
         </section>
-        <section className="lg:py-15">
+        {/* 電腦排版 */}
+        <section className="pb-[30px] lg:py-15">  
           <section className="hidden lg:flex lg:flex-col lg:gap-[105px] lg:w-full lg:mb-20">
             <section className="hidden lg:block lg:relative ">
               <section className="vertical-text flex flex-col w-full h-[420px] bg-soft/100 justify-end items-center ">
@@ -133,13 +134,14 @@ const HomePage: FC = () => {
               </div>
             </section>
           </section>
+          {/* 手機排版 */}
           <section className="block lg:hidden">
             <section className="flex flex-col w-full">
-              <figure className="w-full h-[120px] px-[90px] flex items-center justify-center lg:w-[90px] lg:h-[308px] lg:px-0 lg:order-3 ">
+              <figure className="w-full h-[120px] px-[90px] flex items-center justify-center lg:w-[90px] lg:h-[308px] lg:px-0 ">
                 <img
                   src={why_make_dessert_title}
                   alt=""
-                  className="w-full h-auto object-cover"
+                  className="w-[196px] h-[60px] object-cover"
                 />
               </figure>
               <img
@@ -165,7 +167,7 @@ const HomePage: FC = () => {
                 <img
                   src={why_eat_dessert_title}
                   alt=""
-                  className="w-full h-auto object-cover"
+                  className="w-[196px] h-[60px] object-cover"
                 />
               </figure>
               <img
@@ -192,7 +194,7 @@ const HomePage: FC = () => {
               <img
                 src={want_to_eat_no_reason_title}
                 alt=""
-                className="w-full h-auto object-cover block lg:hidden"
+                className="w-[226px] h-[60px] object-cover block lg:hidden"
               />
               <img
                 src={want_to_eat_no_reason_title_desktop}
