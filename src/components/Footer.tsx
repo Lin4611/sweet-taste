@@ -45,9 +45,8 @@ const Footer = () => {
             className="w-[171px] h-[27px] object-cover m-0 lg:mb-[86px]"
           />
           <section className="flex flex-col w-[227px] text-primary leading-6">
-            <p>
-              07-1234-5678 sweetaste@email.com 800 高雄市新興區幸福路 520 號
-            </p>
+            <p>07-1234-5678 sweetaste@email.com </p>
+            <p> 800 高雄市新興區幸福路 520 號</p>
           </section>
           <section className="flex w-[72px] gap-2 mb-[23px] lg:m-0">
             <img
