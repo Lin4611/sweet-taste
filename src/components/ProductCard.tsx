@@ -36,7 +36,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ imgUrl, title, price }) => {
           加入購物車
         </button>
         <section className="flex justify-between -mt-[435px] px-5">
-          <div className="vertical-text bg-primary/100 w-[36px] h-[107px] text-soft/100 leading-5 flex justify-center items-center">
+          <div className="vertical-text bg-primary/100 w-[36px] h-[107px] text-soft/100 leading-5 flex justify-center items-center tracking-[0.25rem]">
             <p>本日精選</p>
           </div>
           <button
