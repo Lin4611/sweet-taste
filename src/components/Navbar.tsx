@@ -12,7 +12,7 @@ const Navbar: FC = () => {
   return (
     <header className=" w-full mx-auto sticky top-0 z-[100] bg-white py-[36px] lg:py-[30px] lg:sticky lg:max-w-[1024px]">
       <nav className="mx-auto flex items-center justify-between w-full px-[33px] lg:max-w-[940px]">
-        <button type="button" onClick={handleClick} className="blcok active:bg-accent/30 rounded-2xl lg:hidden">
+        <button type="button" onClick={handleClick} className="blcok relative active:bg-accent/30 rounded-2xl lg:hidden">
           <img src={menu_icon} alt="menu"/>
         </button>
         <img
@@ -38,7 +38,7 @@ const Navbar: FC = () => {
           />
         </div>
       </nav>
-      <div className={`lg:hidden fixed left-0 right-0 bg-white shadow-lg transition-all duration-300 ease-in-out overflow-hidden ${navbarShow ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`lg:hidden absolute left-0 right-0 bg-white shadow-lg transition-all duration-300 ease-in-out overflow-hidden ${navbarShow ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0'}`}>
           <div className="flex flex-col w-full items-center pt-[36px]">
             <a href="#" className="text-primary font-semibold hover:text-xl active:bg-accent/30 active:rounded-2xl" onClick={()=>{setNavbarShow(false)}}>首頁</a>
             <a href="#" className="text-primary font-semibold hover:text-xl active:bg-accent/30 active:rounded-2xl" onClick={()=>{setNavbarShow(false)}}>甜點</a>
