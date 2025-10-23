@@ -29,13 +29,13 @@ const CartItemCard: React.FC<CartItemCardProps> = ({
           </div>
 
           <div className="flex text-primary text-center font-light">
-            <button type="button" className="w-12 h-12 border border-soft">
+            <button type="button" className="w-12 h-12 border border-soft hover:bg-primary hover:text-soft active:bg-primary active:text-soft">
               -
             </button>
             <button type="button" className="w-12 h-12 border border-soft">
               {count}
             </button>
-            <button type="button" className="w-12 h-12 border border-soft">
+            <button type="button" className="w-12 h-12 border border-soft hover:bg-primary hover:text-soft active:bg-primary active:text-soft">
               +
             </button>
           </div>
@@ -45,7 +45,9 @@ const CartItemCard: React.FC<CartItemCardProps> = ({
         <label className="text-subtitle text-primary font-semibold leading-5 flex justify-center items-center">
           <span>NT${price * count}</span>
         </label>
-        <img src={delete_icon} alt="" className="w-6 h-6 lg:block hidden" />
+        <button type="button" className="hidden lg:block w-6 h-6 hover:scale-105 active:shadow-lg active:shadow-accent active:rounded-3xl">
+          <img src={delete_icon} alt="" className="w-full h-6 object-cover" />
+        </button> 
       </section>
     </section>
   );
