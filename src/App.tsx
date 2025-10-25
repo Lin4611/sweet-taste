@@ -5,6 +5,7 @@ import ProductListPage from "./pages/ProductListPage";
 import LoginPage from "./pages/LoginPage";
 import CartPage from "./pages/CartPage";
 import ShippingPage from "./pages/ShippingPage";
+import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       {/* <ProductListPage/> */}
       {/* <LoginPage/> */}
       {/* <CartPage /> */}
-      <ShippingPage />
+      {/* <ShippingPage /> */}
+      <CheckoutSuccessPage/>
       <Footer />
     </>
   );
