@@ -35,20 +35,20 @@ const ShippingPage = () => {
             <div className="w-full px-[30px] py-[30px]">
               <div className="w-full flex justify-between h-18 items-center mb-7">
                 <h2 className="text-4xl text-soft font-semibold">運送</h2>
-                <ul
-                  className="relative flex w-[155px]  items-center justify-between 
-             before:absolute before:inset-y-1/2 before:left-0 before:h-0.5 before:w-full 
-             before:-translate-y-1/2 before:bg-muted before:content-['']"
+                <div
+                  className="relative flex w-[170px] items-center justify-between
+                            before:absolute before:h-0.5 before:w-full before:left-0 
+                            before:bg-muted before:content-['']
+                "
                 >
-                  <li
-                    className="relative z-10 flex h-4 w-4 items-center justify-center rounded-full border border-soft bg-primary
-               before:absolute before:h-2.5 before:w-2.5 before:rounded-full before:bg-soft before:content-['']"
-                  ></li>
-
-                  <li className="z-10 h-4 w-4 rounded-full border border-muted bg-primary"></li>
-
-                  <li className="z-10 h-4 w-4 rounded-full border border-muted bg-primary"></li>
-                </ul>
+                  <div
+                    className="z-10 flex relative h-5 w-5 border items-center justify-center border-soft bg-primary rounded-full
+                        before:absolute before:w-2.5 before:h-2.5 before:bg-soft before:content-[''] before:rounded-full
+                    "
+                  ></div>
+                  <div className="z-10 flex relative h-5 w-5 border items-center justify-center border-soft bg-primary rounded-full"></div>
+                  <div className="z-10 flex relative h-5 w-5 border items-center justify-center border-soft bg-primary rounded-full"></div>
+                </div>
               </div>
               <section className="w-full flex flex-col gap-4">
                 <div className="w-full flex gap-[9px]">
