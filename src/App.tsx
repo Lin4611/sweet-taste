@@ -7,7 +7,7 @@ import CartPage from "./pages/CartPage";
 import ShippingPage from "./pages/ShippingPage";
 import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
 import CheckoutPaymentPage from "./pages/CheckoutPaymentPage";
-
+import CheckoutInvoicePage from "./pages/CheckoutInvoicePage";
 function App() {
   return (
     <>
@@ -18,7 +18,8 @@ function App() {
       {/* <CartPage /> */}
       {/* <ShippingPage /> */}
       {/* <CheckoutSuccessPage/> */}
-      <CheckoutPaymentPage />
+      {/* <CheckoutPaymentPage /> */}
+      <CheckoutInvoicePage />
       <Footer />
     </>
   );
