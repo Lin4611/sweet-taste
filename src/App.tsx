@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import CartPage from "./pages/CartPage";
 import ShippingPage from "./pages/ShippingPage";
 import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
+import CheckoutPaymentPage from "./pages/CheckoutPaymentPage";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
       {/* <LoginPage/> */}
       {/* <CartPage /> */}
       {/* <ShippingPage /> */}
-      <CheckoutSuccessPage/>
+      {/* <CheckoutSuccessPage/> */}
+      <CheckoutPaymentPage />
       <Footer />
     </>
   );
