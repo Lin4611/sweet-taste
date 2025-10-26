@@ -1,10 +1,54 @@
-const CheckoutSuccessPage = ()=>{
-    return(
-        <>
-        <main className="w-full mx-auto lg:max-w-[1024px]">
+import banner from "../assets/img/success-bg-pic.avif";
+import success_title from "../assets/img/title-pic/checkout-success-title.png";
+import check_icon from "../assets/img/icon/check_icon.svg";
+const CheckoutSuccessPage = () => {
+  return (
+    <>
+      <main className="w-full mx-auto lg:max-w-[1024px] lg:px-[42px] lg:mb-15">
+        <div className="flex flex-col lg:gap-[50px]">
+          <section
+            className="w-full bg-center bg-cover h-[518px] flex items-center justify-center flex-col gap-[30px]"
+            style={{ backgroundImage: `url(${banner})` }}
+          >
+            <div className="relative flex items-center justify-between w-[190px] before:content-[''] before:absolute before:h-0.5 before:bg-primary before:w-full before:top-1/2 before:left-0 before:-translate-y-1/2 before:z-0">
+              <img
+                src={check_icon}
+                alt=""
+                className="relative z-10 w-5 h-5 bg-white rounded-full"
+              />
+              <img
+                src={check_icon}
+                alt=""
+                className="relative z-10 w-5 h-5 bg-white rounded-full"
+              />
+              <img
+                src={check_icon}
+                alt=""
+                className="relative z-10 w-5 h-5 bg-white rounded-full"
+              />
+            </div>
+            <img
+              src={success_title}
+              alt="success-title"
+              className="w-[190px] h-auto object-cover"
+            />
+            <button
+              type="button"
+              className="hidden lg:block w-[300px] h-[65px] text-title text-primary font-semibold bg-accent active:bg-soft hover:bg-soft"
+            >
+              繼續逛逛
+            </button>
+          </section>
 
-        </main>
-        </>
-    )
-}
-export default CheckoutSuccessPage
+          <button
+            type="button"
+            className="lg:hidden block w-full h-[65px] text-title text-primary font-semibold bg-accent active:bg-soft hover:bg-soft"
+          >
+            繼續逛逛
+          </button>
+        </div>
+      </main>
+    </>
+  );
+};
+export default CheckoutSuccessPage;
