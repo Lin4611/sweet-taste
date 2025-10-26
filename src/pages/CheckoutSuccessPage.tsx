@@ -1,6 +1,5 @@
 import banner from "../assets/img/success-bg-pic.avif";
 import success_title from "../assets/img/title-pic/checkout-success-title.png";
-import check_icon from "../assets/img/icon/check_icon.svg";
 const CheckoutSuccessPage = () => {
   return (
     <>
@@ -11,21 +10,9 @@ const CheckoutSuccessPage = () => {
             style={{ backgroundImage: `url(${banner})` }}
           >
             <div className="relative flex items-center justify-between w-[190px] before:content-[''] before:absolute before:h-0.5 before:bg-primary before:w-full before:top-1/2 before:left-0 before:-translate-y-1/2 before:z-0">
-              <img
-                src={check_icon}
-                alt=""
-                className="relative z-10 w-5 h-5 bg-white rounded-full"
-              />
-              <img
-                src={check_icon}
-                alt=""
-                className="relative z-10 w-5 h-5 bg-white rounded-full"
-              />
-              <img
-                src={check_icon}
-                alt=""
-                className="relative z-10 w-5 h-5 bg-white rounded-full"
-              />
+              <div className="relative z-10 w-5 h-5 rounded-full bg-primary flex items-center justify-center after:content-[''] after:block after:w-2 after:h-3.5 after:border-white after:border-r-[2px] after:border-b-[2px] after:rotate-45 after:-translate-y-0.5"></div>
+              <div className="relative z-10 w-5 h-5 rounded-full bg-primary flex items-center justify-center after:content-[''] after:block after:w-2 after:h-3.5 after:border-white after:border-r-[2px] after:border-b-[2px] after:rotate-45 after:-translate-y-0.5"></div>
+              <div className="relative z-10 w-5 h-5 rounded-full bg-primary flex items-center justify-center after:content-[''] after:block after:w-2 after:h-3.5 after:border-white after:border-r-[2px] after:border-b-[2px] after:rotate-45 after:-translate-y-0.5"></div>
             </div>
             <img
               src={success_title}
