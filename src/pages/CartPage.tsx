@@ -3,6 +3,7 @@ import p1 from "../assets/img/p-1.png";
 import p2 from "../assets/img/p-2.png";
 import p3 from "../assets/img/p-3.png";
 import CartItemCard from "../components/CartItemCard";
+import type { FC } from "react";
 const CartList = [
   {
     id: 1,
@@ -26,7 +27,7 @@ const CartList = [
     count: 2,
   },
 ];
-const CartPage = () => {
+const CartPage:FC = () => {
   const navigate = useNavigate();
   return (
     <>

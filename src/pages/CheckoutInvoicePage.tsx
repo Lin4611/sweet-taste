@@ -3,6 +3,7 @@ import p1 from "../assets/img/p-1.png";
 import p2 from "../assets/img/p-2.png";
 import p3 from "../assets/img/p-3.png";
 import { useNavigate } from "react-router-dom";
+import type { FC } from "react";
 const ProductList = [
   {
     id: 1,
@@ -26,7 +27,7 @@ const ProductList = [
     price: 150,
   },
 ];
-const CheckoutInvoicePage = () => {
+const CheckoutInvoicePage:FC = () => {
   const [invoiceWay, setInvoiceWay] = useState<"mail" | "electronic">(
     "electronic"
   );

@@ -2,6 +2,7 @@ import p1 from "../assets/img/p-1.png";
 import p2 from "../assets/img/p-2.png";
 import p3 from "../assets/img/p-3.png";
 import { useNavigate } from "react-router-dom";
+import type { FC } from "react";
 const shippingProductList = [
   {
     id: 1,
@@ -25,7 +26,7 @@ const shippingProductList = [
     price: 150,
   },
 ];
-const ShippingPage = () => {
+const ShippingPage: FC = () => {
   const navigate = useNavigate();
   return (
     <>

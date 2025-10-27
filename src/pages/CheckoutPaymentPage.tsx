@@ -25,8 +25,9 @@ const ProductList = [
     price: 150,
   },
 ];
+import type { FC } from "react";
 import { useNavigate } from "react-router-dom";
-const CheckoutPaymentPage = () => {
+const CheckoutPaymentPage:FC = () => {
   const navigate = useNavigate();
   return (
     <>
