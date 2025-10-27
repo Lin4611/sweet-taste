@@ -10,12 +10,12 @@ const Navbar: FC = () => {
     setNavbarShow(!navbarShow);
   };
   return (
-    <header className=" w-full mx-auto sticky top-0 z-[100] bg-white py-[36px] lg:py-[30px] lg:sticky lg:max-w-[1024px]">
+    <header className="w-full mx-auto sticky top-0 z-[100] bg-white py-[36px] lg:py-[30px] lg:max-w-[1024px]">
       <nav className="mx-auto flex items-center justify-between w-full px-[33px] lg:max-w-[940px]">
         <button
           type="button"
           onClick={handleClick}
-          className="blcok relative active:bg-accent/30 rounded-2xl lg:hidden"
+          className="justify-self-start active:bg-accent/30 rounded-2xl lg:hidden"
         >
           <img src={menu_icon} alt="menu" />
         </button>
@@ -25,8 +25,6 @@ const Navbar: FC = () => {
             alt="logo"
             className="hidden lg:block h-[40px] w-auto object-cover"
           />
-        </Link>
-        <Link to="/">
           <img
             src={logo_phone}
             alt="logo"
@@ -34,7 +32,7 @@ const Navbar: FC = () => {
           />
         </Link>
 
-        <div className="items-center justify-between lg:flex lg:max-w-[34%] lg:w-full">
+        <div className="items-center justify-between lg:flex lg:max-w-[320px] lg:w-full">
           <div className="hidden lg:max-w-[70%] lg:flex w-full items-center justify-between">
             <Link
               to="/"
