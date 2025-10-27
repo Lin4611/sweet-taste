@@ -8,7 +8,7 @@ import today_is_goodday_title from "../assets/img/title-pic/footer-title.png";
 const Footer = () => {
   return (
     <footer className="w-full mx-auto flex flex-col lg:max-w-[1024px]">
-      <section className="w-full flex flex-col bg-primary h-[186px] py-[30px] items-center justify-center gap-[33px] lg:flex-row lg:h-[116px]">
+      <section className="w-full flex flex-col bg-primary h-[186px] py-[30px] items-center justify-center gap-[33px] lg:flex-row lg:h-[116px] lg:gap-31">
         <div className="flex w-[276px] items-center justify-between">
           <img
             src={logo}
@@ -19,7 +19,7 @@ const Footer = () => {
             訂閱你我的甜蜜郵件
           </h3>
         </div>
-        <div className="flex w-full items-center h-14 relative px-[30px] lg:w-[380px] lg:p-0">
+        <div className="flex w-[380px] items-center h-14 relative px-[30px] lg:w-[380px] lg:p-0">
           <img
             src={mail_icon}
             alt=""
