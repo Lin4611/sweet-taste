@@ -2,6 +2,7 @@ import { useState } from "react";
 import p1 from "../assets/img/p-1.png";
 import p2 from "../assets/img/p-2.png";
 import p3 from "../assets/img/p-3.png";
+import { useNavigate } from "react-router-dom";
 const ProductList = [
   {
     id: 1,
@@ -29,6 +30,7 @@ const CheckoutInvoicePage = () => {
   const [invoiceWay, setInvoiceWay] = useState<"mail" | "electronic">(
     "electronic"
   );
+  const navigate = useNavigate();
   return (
     <>
       <main className="w-full mx-auto lg:max-w-[1024px] lg:px-[122px] lg:pb-[64px]">
@@ -152,6 +154,7 @@ const CheckoutInvoicePage = () => {
             <button
               type="button"
               className="w-full h-[65px] text-title font-semibold text-primary bg-accent flex items-center justify-center active:bg-soft hover:bg-soft"
+              onClick={()=>navigate("/checkout/success")}
             >
               確認結帳
             </button>
