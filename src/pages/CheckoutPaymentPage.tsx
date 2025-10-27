@@ -25,7 +25,9 @@ const ProductList = [
     price: 150,
   },
 ];
+import { useNavigate } from "react-router-dom";
 const CheckoutPaymentPage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <main className="w-full mx-auto lg:max-w-[1024px] lg:px-[122px] lg:pb-[65px] lg:pt-5">
@@ -137,6 +139,7 @@ const CheckoutPaymentPage = () => {
             <button
               type="button"
               className="w-full h-[65px] text-title font-semibold text-primary bg-accent flex items-center justify-center active:bg-soft hover:bg-soft"
+              onClick={()=>navigate("/checkout/invoice")}
             >
               下一步
             </button>
