@@ -1,4 +1,4 @@
-import { useState, type FC } from "react";
+import { useRef, type FC } from "react";
 import CategoryCard from "../components/CategoryCard";
 import ProductCard from "../components/ProductCard";
 import banner from "../assets/img/home-banner.avif";
@@ -13,54 +13,20 @@ import why_eat_dessert_title from "../assets/img/title-pic/mobile-title-2.svg";
 import why_eat_dessert_title_desk from "../assets/img/title-pic/desktop-title-2.png";
 import want_to_eat_no_reason_title from "../assets/img/title-pic/mobile-title-3.svg";
 import want_to_eat_no_reason_title_desktop from "../assets/img/title-pic/desktop-title-3.svg";
-import product_1 from "../assets/img/p-1.png";
-import product_2 from "../assets/img/p-2.png";
-import product_3 from "../assets/img/p-3.png";
-
-const productList = [
-  {
-    imgUrl: `${product_1}`,
-    title: "焦糖瑪卡龍",
-    price: "NT$ 450",
-  },
-  {
-    imgUrl: `${product_2}`,
-    title: "焦糖瑪卡龍",
-    price: "NT$ 450",
-  },
-  {
-    imgUrl: `${product_3}`,
-    title: "焦糖瑪卡龍",
-    price: "NT$ 450",
-  },
-];
+import { productList } from "../data/productList";
+import arrow_left from "../assets/img/icon/arrow_left.png";
+import arrow_right from "../assets/img/icon/arrow_right.png";
 const HomePage: FC = () => {
-  const [current, setCurrent] = useState<number>(0);
-  const [touchStart, setTouchStart] = useState<number>(0);
-
-  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    setTouchStart(e.touches[0].clientX);
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  
+  const scrollPage = (dir: 1 | -1) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    el.scrollBy({
+      left: dir * el.clientWidth,
+      behavior: "smooth",
+    });
   };
-  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
-    const touchEnd = e.changedTouches[0].clientX;
-
-    // 如果手指往左滑超過 50px（開始位置 - 結束位置 > 50）
-    if (touchStart - touchEnd > 50) {
-      // 切換到下一張，如果是最後一張就回到第一張
-      // (current + 1) % products.length 是取餘數，確保不會超出範圍
-      setCurrent((prev) => (prev + 1) % productList.length);
-    }
-
-    // 如果手指往右滑超過 50px（開始位置 - 結束位置 < -50）
-    if (touchStart - touchEnd < -50) {
-      // 切換到上一張，如果是第一張就跳到最後一張
-      // (prev - 1 + products.length) 確保不會出現負數
-      setCurrent(
-        (prev) => (prev - 1 + productList.length) % productList.length
-      );
-    }
-  };
-
   return (
     <>
       <main className="w-full mx-auto lg:max-w-[1024px]">
@@ -81,7 +47,7 @@ const HomePage: FC = () => {
           </section>
         </section>
         {/* 電腦排版 */}
-        <section className="pb-[30px] lg:py-15">  
+        <section className="pb-[30px] lg:py-15">
           <section className="hidden lg:flex lg:flex-col lg:gap-[105px] lg:w-full lg:mb-20">
             <section className="hidden lg:block lg:relative ">
               <section className="vertical-text flex flex-col w-full h-[420px] bg-soft/100 justify-end items-center ">
@@ -202,37 +168,51 @@ const HomePage: FC = () => {
                 className="hidden lg:block w-[89px] h-[377px]"
               />
             </figure>
-            <section className="hidden lg:flex w-full px-[42px] gap-5">
-              {productList.map((p, i) => (
-                <ProductCard
-                  key={i}
-                  imgUrl={p.imgUrl}
-                  title={p.title}
-                  price={p.price}
-                />
-              ))}
-            </section>
-            <section className="w-full max-w-[315px] mx-auto lg:hidden">
-              <div
-                className="overflow-hidden"
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
+            <section className="relative w-full mx-auto max-w-[315px] md:max-w-[650px] lg:max-w-[1024px] lg:px-[42px]">
+              <button
+                type="button"
+                className="hidden z-10 absolute bg-soft/100 rounded-full w-10 h-10 lg:flex items-center justify-center top-1/2 left-0 hover:bg-accent"
+                onClick={()=>scrollPage(-1)}
               >
-                <div
-                  className="flex transition-transform duration-300 ease-out"
-                  style={{ transform: `translateX(-${current * 100}%)` }}
-                >
-                  {productList.map((p, i) => (
-                    <div className="min-w-full  flex-shrink-0" key={i}>
-                      <ProductCard
-                        imgUrl={p.imgUrl}
-                        title={p.title}
-                        price={p.price}
-                      />
-                    </div>
-                  ))}
-                </div>
+                <img
+                  src={arrow_left}
+                  alt="left"
+                  className="w-8 h-8 object-cover"
+                />
+              </button>
+              <div
+                className="
+                  flex gap-4 overflow-x-auto scroll-smooth
+                  snap-x snap-mandatory
+                  [-ms-overflow-style:none] [scrollbar-width:none]
+                  [&::-webkit-scrollbar]:hidden
+                "
+                 ref={scrollerRef}
+              >
+                {productList.map((p) => (
+                  <div
+                    key={p.id}
+                    className="snap-start shrink-0 basis-full md:basis-1/2 lg:basis-[300px]"
+                  >
+                    <ProductCard
+                      imgUrl={p.imgUrl}
+                      title={p.title}
+                      price={p.price}
+                    />
+                  </div>
+                ))}
               </div>
+              <button
+                type="button"
+                className="hidden z-10 absolute bg-soft/100 rounded-full w-10 h-10 lg:flex items-center justify-center top-1/2 right-0 hover:bg-accent"
+                onClick={()=>scrollPage(1)}
+              >
+                <img
+                  src={arrow_right}
+                  alt="right"
+                  className="w-8 h-8 object-cover"
+                />
+              </button>
             </section>
           </section>
         </section>
