@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import p1 from "../assets/img/p-1.png";
 import p2 from "../assets/img/p-2.png";
 import p3 from "../assets/img/p-3.png";
@@ -25,8 +26,8 @@ const CartList = [
     count: 2,
   },
 ];
-
 const CartPage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <main className="w-full mx-auto lg:max-w-[1024px] lg:px-[42px] lg:pt-15">
@@ -68,9 +69,11 @@ const CartPage = () => {
                 <p>NT$3,000</p>
               </div>
             </div>
+
             <button
               type="button"
               className="text-title text-primary font-semibold flex justify-center items-center bg-accent py-4 active:bg-soft hover:bg-soft"
+              onClick={() => navigate("/checkout/shipping")}
             >
               結帳
             </button>
