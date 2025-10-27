@@ -1,7 +1,7 @@
 import p1 from "../assets/img/p-1.png";
 import p2 from "../assets/img/p-2.png";
 import p3 from "../assets/img/p-3.png";
-
+import { useNavigate } from "react-router-dom";
 const shippingProductList = [
   {
     id: 1,
@@ -26,6 +26,7 @@ const shippingProductList = [
   },
 ];
 const ShippingPage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <main className="w-full mx-auto lg:max-w-[1024px] lg:px-[122px] lg:pb-[65px] lg:pt-5">
@@ -120,6 +121,7 @@ const ShippingPage = () => {
             <button
               type="button"
               className="text-title text-primary font-semibold bg-accent w-full py-[15px] hover:bg-soft"
+              onClick={()=>navigate("/checkout/payment")}
             >
               下一步
             </button>
