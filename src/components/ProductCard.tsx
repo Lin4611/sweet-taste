@@ -12,7 +12,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ imgUrl, title, price }) => {
   const hadnleClick = () => setAddLike(!addlike);
   return (
     <>
-      <section className="w-full h-[436px] flex flex-col mx-auto relative">
+      <section className="w-[315px] h-[436px] flex flex-col mx-auto relative lg:w-[300px]">
         <figure className="h-[315px] w-full">
           <img
             src={imgUrl}
