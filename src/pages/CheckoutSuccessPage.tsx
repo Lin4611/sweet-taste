@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import banner from "../assets/img/success-bg-pic.avif";
 import success_title from "../assets/img/title-pic/checkout-success-title.png";
 const CheckoutSuccessPage = () => {
@@ -19,20 +20,23 @@ const CheckoutSuccessPage = () => {
               alt="success-title"
               className="w-[190px] h-auto object-cover"
             />
+            <Link to="/products">
+              <button
+                type="button"
+                className="hidden lg:block w-[300px] h-[65px] text-title text-primary font-semibold bg-accent active:bg-soft hover:bg-soft"
+              >
+                繼續逛逛
+              </button>
+            </Link>
+          </section>
+          <Link to="/products">
             <button
               type="button"
-              className="hidden lg:block w-[300px] h-[65px] text-title text-primary font-semibold bg-accent active:bg-soft hover:bg-soft"
+              className="lg:hidden block w-full h-[65px] text-title text-primary font-semibold bg-accent active:bg-soft hover:bg-soft"
             >
               繼續逛逛
             </button>
-          </section>
-
-          <button
-            type="button"
-            className="lg:hidden block w-full h-[65px] text-title text-primary font-semibold bg-accent active:bg-soft hover:bg-soft"
-          >
-            繼續逛逛
-          </button>
+          </Link>
         </div>
       </main>
     </>
