@@ -32,8 +32,8 @@ const ShippingPage: FC = () => {
   const navigate = useNavigate();
   return (
     <>
-      <main className="w-full mx-auto lg:max-w-[1024px] lg:px-[122px] lg:pb-[65px] lg:pt-5">
-        <section className="w-full flex gap-5">
+      <main className="w-full mx-auto md:max-w-[768px] md:pb-8 md:pt-5 md:px-[10px] lg:max-w-[1024px] lg:px-[122px] lg:pb-[65px] lg:pt-5">
+        <section className="w-full flex gap-5 md:gap-[15px]">
           {/* 左半邊 */}
           <section className="w-full flex flex-col bg-primary">
             <div className="w-full px-[30px] py-[30px]">
@@ -158,7 +158,7 @@ const ShippingPage: FC = () => {
             </button>
           </section>
           {/* 右半邊 */}
-          <section className="hidden lg:flex lg:max-w-[300px] lg:w-full">
+          <section className="hidden md:flex md:w-full md:max-w-[300px] lg:flex lg:max-w-[300px] lg:w-full">
             <section className="w-full flex flex-col gap-4">
               <div className="w-full flex flex-col items-center gap-4 border border-soft pb-4">
                 <h2 className="text-title text-muted font-semibold leading-5 bg-soft/100 h-[65px] w-full flex justify-center items-center">
