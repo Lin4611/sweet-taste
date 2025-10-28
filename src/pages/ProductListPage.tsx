@@ -6,10 +6,9 @@ import btnNext from "../assets/img/icon/arrow_right.png";
 import ProductCard from "../components/ProductCard";
 import { productList } from "../data/productList";
 import { getVisiblePages } from "../utils/pagination";
+import { useLocation } from "react-router-dom";
 const mobileItems: number = 3;
 const desktopItems: number = 6;
-
-let productCategoryList = productList;
 
 const ProductListPage: FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -17,7 +16,12 @@ const ProductListPage: FC = () => {
     window.matchMedia("(max-width:640px)").matches ? mobileItems : desktopItems
   );
 
-  const [category, setCategory] = useState<string>("all");
+  const location = useLocation();
+  const state = location.state as { series?: "all" | "today" | "popular" | "new" } | null;
+  const [productCategoryList, setProductCategoryList] = useState(productList);
+  const [category, setCategory] = useState<"all" | "today" | "new" | "popular">(
+    "all"
+  );
 
   const totalPages = Math.ceil(productCategoryList.length / itemsPrePage);
 
@@ -31,20 +35,34 @@ const ProductListPage: FC = () => {
   const goToNext = () => setCurrentPage((p) => Math.min(totalPages, p + 1));
 
   const visiblePages = getVisiblePages(currentPage, totalPages);
-
+  //去往目標頁數
   const goToPages = (page: number) => {
     if (page < 1 || page > totalPages) return;
     setCurrentPage(page);
   };
-
+  //判斷按下的標籤是哪個分類
   const handleCategory = (c: "all" | "today" | "new" | "popular") => {
     setCurrentPage(1);
     setCategory(c);
-    c === "all"
-      ? (productCategoryList = productList)
-      : (productCategoryList = productList.filter((e) => e.series === c));
+    setProductCategoryList(
+      c === "all" ? productList : productList.filter((e) => e.series === c)
+    );
   };
-
+  
+  useEffect(() => {
+    if (state?.series) {
+      setCategory(state.series);
+      setProductCategoryList(
+        state.series === "all"
+          ? productList
+          : productList.filter((p) => p.series === state.series)
+      );
+    } else {
+      setCategory("all");
+      setProductCategoryList(productList);
+    }
+  }, [state]);
+  // RWD 監聽
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width:640px)");
     const handleResize = (e: MediaQueryListEvent) => {
