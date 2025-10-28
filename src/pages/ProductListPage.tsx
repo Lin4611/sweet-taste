@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState, type FC } from "react";
-import banner_pic from "../assets/img/banner.png";
+import banner_pic from "../assets/img/product_banner.avif";
+import banner_title from "../assets/img/title-pic/desktop-title-3.svg";
 import btnPrev from "../assets/img/icon/arrow_left.png";
 import btnNext from "../assets/img/icon/arrow_right.png";
 import ProductCard from "../components/ProductCard";
@@ -39,15 +40,20 @@ const ProductListPage: FC = () => {
   }, []);
   return (
     <>
-      <main className="w-full mx-auto lg:max-w-[1024px]">
-        <figure className="w-full  h-auto lg:px-[42px] lg:h-auto">
+      <main className="w-full mx-auto lg:max-w-[1024px] lg:px-[42px]">
+        <figure className="relative w-full h-auto lg:h-auto">
           <img
             src={banner_pic}
             alt="banner"
             className="w-full h-[277px] object-cover lg:h-auto"
           />
+          <img
+            src={banner_title}
+            alt="title"
+            className="z-10 absolute h-[219px] top-[30px] right-[30px] lg:h-[328px] lg:right-10"
+          />
         </figure>
-        <section className="flex flex-col w-full py-[30px] lg:px-[42px] lg:py-15">
+        <section className="flex flex-col w-full py-[30px]  lg:py-15">
           <section className="flex flex-col justify-between lg:flex-row lg:gap-5">
             <ul className="flex flex-col items-center w-full text-primary text-title font-semibold leading-10 text-center lg:w-[300px]">
               <p className="bg-primary text-invert py-3 w-full">甜點類別</p>
@@ -65,7 +71,7 @@ const ProductListPage: FC = () => {
               </li>
             </ul>
             <div className="flex flex-col gap-[30px] items-center">
-              <section className="py-[30px] px-[30px] grid grid-cols-1 gap-5 lg:grid-cols-2 lg:p-0">
+              <section className="py-[30px] px-[30px] grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-2 lg:p-0">
                 {pageProducts.map((p, i) => (
                   <ProductCard
                     key={i}

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import banner from "../assets/img/success-bg-pic.avif";
 import success_title from "../assets/img/title-pic/checkout-success-title.png";
-const CheckoutSuccessPage = () => {
+import type { FC } from "react";
+const CheckoutSuccessPage:FC = () => {
   return (
     <>
       <main className="w-full mx-auto lg:max-w-[1024px] lg:px-[42px] lg:mb-15">

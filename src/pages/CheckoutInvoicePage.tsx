@@ -2,7 +2,10 @@ import { useState } from "react";
 import p1 from "../assets/img/p-1.png";
 import p2 from "../assets/img/p-2.png";
 import p3 from "../assets/img/p-3.png";
+import arrow_up_icon from "../assets/img/icon/arrow_drop_up.svg";
+import arrow_down_icon from "../assets/img/icon/arrow_drop_down.svg";
 import { useNavigate } from "react-router-dom";
+import type { FC } from "react";
 const ProductList = [
   {
     id: 1,
@@ -26,14 +29,14 @@ const ProductList = [
     price: 150,
   },
 ];
-const CheckoutInvoicePage = () => {
+const CheckoutInvoicePage: FC = () => {
   const [invoiceWay, setInvoiceWay] = useState<"mail" | "electronic">(
     "electronic"
   );
   const navigate = useNavigate();
   return (
     <>
-      <main className="w-full mx-auto lg:max-w-[1024px] lg:px-[122px] lg:pb-[64px]">
+      <main className="w-full mx-auto md:max-w-[768px] md:pb-8 md:pt-5 md:px-[10px] lg:max-w-[1024px] lg:px-[122px] lg:pb-[64px] lg:pt-5">
         <section className="w-full flex gap-5">
           {/* 左半邊 */}
           <section className="w-full flex flex-col">
@@ -107,30 +110,67 @@ const CheckoutInvoicePage = () => {
               ) : (
                 <div className="w-full flex flex-col gap-4">
                   <div className="w-full flex flex-col gap-2">
-                    <p className="text-subtitle text-soft leading-5 font-semibold">
-                      地址
-                    </p>
+                    <div className="flex w-full justify-between items-center">
+                      <p className="text-subtitle text-soft leading-5 font-semibold">
+                        地址
+                      </p>
+                      <label className="hidden md:flex lg:flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          className="w-4 h-4 accent-soft"
+                        />
+                        <span className="text-soft">同運送地址</span>
+                      </label>
+                    </div>
                     <div className="w-full flex gap-[9px]">
-                      <select
-                        name="city"
-                        className="w-full py-[17px] bg-soft text-muted pl-5"
-                      >
-                        <option value="高雄市">高雄市</option>
-                        <option value="台南市">台南市</option>
-                        <option value="嘉義市">嘉義市</option>
-                        <option value="屏東市">屏東市</option>
-                        <option value="雲林市">雲林市</option>
-                      </select>
-                      <select
-                        name="dist"
-                        className="w-full py-[17px] bg-soft text-muted pl-5"
-                      >
-                        <option value="新興區">新興區</option>
-                        <option value="三民區">三民區</option>
-                        <option value="小港區">小港區</option>
-                        <option value="前鎮區">前鎮區</option>
-                        <option value="鼓山區">鼓山區</option>
-                      </select>
+                      <div className="w-full relative flex py-[17px] bg-soft text-muted">
+                        <select
+                          name="city"
+                          className="w-full pl-5 appearance-none "
+                        >
+                          <option value="高雄市">高雄市</option>
+                          <option value="台南市">台南市</option>
+                          <option value="嘉義市">嘉義市</option>
+                          <option value="屏東市">屏東市</option>
+                          <option value="雲林市">雲林市</option>
+                        </select>
+                        <div className="flex flex-col justify-center items-center absolute right-5 top-3">
+                          <img
+                            src={arrow_up_icon}
+                            alt="up"
+                            className="w-6 h-6 object-cover"
+                          />
+                          <img
+                            src={arrow_down_icon}
+                            alt="down"
+                            className="w-6 h-6 object-cover -mt-4"
+                          />
+                        </div>
+                      </div>
+                      <div className="w-full relative flex py-[17px] bg-soft text-muted">
+                        <select
+                          name="dist"
+                          className="w-full pl-5 appearance-none"
+                        >
+                          <option value="新興區">新興區</option>
+                          <option value="三民區">三民區</option>
+                          <option value="小港區">小港區</option>
+                          <option value="前鎮區">前鎮區</option>
+                          <option value="鼓山區">鼓山區</option>
+                        </select>
+                        <div className="flex flex-col justify-center items-center absolute right-5 top-3">
+                          <img
+                            src={arrow_up_icon}
+                            alt="up"
+                            className="w-6 h-6 object-cover"
+                          />
+                          <img
+                            src={arrow_down_icon}
+                            alt="down"
+                            className="w-6 h-6 object-cover -mt-4"
+                          />
+                        </div>
+                      </div>
                     </div>
                     <input
                       type="text"
@@ -154,13 +194,13 @@ const CheckoutInvoicePage = () => {
             <button
               type="button"
               className="w-full h-[65px] text-title font-semibold text-primary bg-accent flex items-center justify-center active:bg-soft hover:bg-soft"
-              onClick={()=>navigate("/checkout/success")}
+              onClick={() => navigate("/checkout/success")}
             >
               確認結帳
             </button>
           </section>
           {/* 右半邊 */}
-          <section className="hidden lg:flex lg:max-w-[300px] lg:w-full">
+          <section className="hidden md:flex md:w-full md:max-w-[300px] lg:flex lg:max-w-[300px] lg:w-full">
             <section className="w-full flex flex-col gap-4">
               <div className="w-full flex flex-col items-center gap-4 border border-soft pb-4">
                 <h2 className="text-title text-muted font-semibold leading-5 bg-soft/100 h-[65px] w-full flex justify-center items-center">

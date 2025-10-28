@@ -2,6 +2,8 @@ import credit_icon from "../assets/img/icon/credit_card_icon.svg";
 import p1 from "../assets/img/p-1.png";
 import p2 from "../assets/img/p-2.png";
 import p3 from "../assets/img/p-3.png";
+import arrow_up_icon from "../assets/img/icon/arrow_drop_up.svg";
+import arrow_down_icon from "../assets/img/icon/arrow_drop_down.svg";
 const ProductList = [
   {
     id: 1,
@@ -25,13 +27,14 @@ const ProductList = [
     price: 150,
   },
 ];
+import type { FC } from "react";
 import { useNavigate } from "react-router-dom";
-const CheckoutPaymentPage = () => {
+const CheckoutPaymentPage: FC = () => {
   const navigate = useNavigate();
   return (
     <>
-      <main className="w-full mx-auto lg:max-w-[1024px] lg:px-[122px] lg:pb-[65px] lg:pt-5">
-        <section className="w-full flex gap-5">
+      <main className="w-full mx-auto md:max-w-[768px] md:pb-8 md:pt-5 md:px-[10px] lg:max-w-[1024px] lg:px-[122px] lg:pb-[65px] lg:pt-5">
+        <section className="w-full flex gap-5 md:gap-[15px]">
           {/* 左半邊 */}
           <section className="w-full flex flex-col">
             <div className="w-full flex flex-col gap-[29px] px-[30px] py-[30px] bg-primary">
@@ -96,32 +99,60 @@ const CheckoutPaymentPage = () => {
                     有效期限
                   </p>
                   <div className="w-full flex gap-[9px]">
-                    <select
-                      name="mouth"
-                      className="w-full py-[17px] bg-soft text-muted pl-5"
-                    >
-                      <option value="" disabled hidden>
-                        月
-                      </option>
-                      <option value="1月">1月</option>
-                      <option value="2月">2月</option>
-                      <option value="3月">3月</option>
-                      <option value="4月">4月</option>
-                      <option value="5月">5月</option>
-                    </select>
-                    <select
-                      name="year"
-                      className="w-full py-[17px] bg-soft text-muted pl-5"
-                    >
-                      <option value="" disabled hidden>
-                        年
-                      </option>
-                      <option value="2026">2026</option>
-                      <option value="2027">2027</option>
-                      <option value="2028">2028</option>
-                      <option value="2029">2029</option>
-                      <option value="2030">2030</option>
-                    </select>
+                    <div className="w-full relative flex py-[17px] bg-soft text-muted">
+                      <select
+                        name="mouth"
+                        className="w-full pl-5 appearance-none"
+                      >
+                        <option value="" selected disabled>
+                          月
+                        </option>
+                        {
+                          Array.from({length:12},(_,i)=>(
+                            <option value={i+1} key={i+1}>{`${i+1}月`}</option>
+                          ))
+                        }
+                      </select>
+                      <div className="flex flex-col justify-center items-center absolute right-5 top-3">
+                        <img
+                          src={arrow_up_icon}
+                          alt="up"
+                          className="w-6 h-6 object-cover"
+                        />
+                        <img
+                          src={arrow_down_icon}
+                          alt="down"
+                          className="w-6 h-6 object-cover -mt-4"
+                        />
+                      </div>
+                    </div>
+                    <div className="w-full relative flex py-[17px] bg-soft text-muted">
+                      <select
+                        name="year"
+                        className="w-full pl-5 appearance-none"
+                      >
+                        <option value="" selected disabled>
+                          年
+                        </option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+                      </select>
+                      <div className="flex flex-col justify-center items-center absolute right-5 top-3">
+                        <img
+                          src={arrow_up_icon}
+                          alt="up"
+                          className="w-6 h-6 object-cover"
+                        />
+                        <img
+                          src={arrow_down_icon}
+                          alt="down"
+                          className="w-6 h-6 object-cover -mt-4"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="w-full flex flex-col gap-2">
@@ -139,13 +170,13 @@ const CheckoutPaymentPage = () => {
             <button
               type="button"
               className="w-full h-[65px] text-title font-semibold text-primary bg-accent flex items-center justify-center active:bg-soft hover:bg-soft"
-              onClick={()=>navigate("/checkout/invoice")}
+              onClick={() => navigate("/checkout/invoice")}
             >
               下一步
             </button>
           </section>
           {/* 右半邊 */}
-          <section className="hidden lg:flex lg:max-w-[300px] lg:w-full">
+          <section className="hidden md:flex md:w-full md:max-w-[300px] lg:flex lg:max-w-[300px] lg:w-full">
             <section className="w-full flex flex-col gap-4">
               <div className="w-full flex flex-col items-center gap-4 border border-soft pb-4">
                 <h2 className="text-title text-muted font-semibold leading-5 bg-soft/100 h-[65px] w-full flex justify-center items-center">

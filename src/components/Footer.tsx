@@ -8,7 +8,7 @@ import today_is_goodday_title from "../assets/img/title-pic/footer-title.png";
 const Footer = () => {
   return (
     <footer className="w-full mx-auto flex flex-col lg:max-w-[1024px]">
-      <section className="w-full flex flex-col bg-primary h-[186px] py-[30px] items-center justify-center gap-[33px] lg:flex-row lg:h-[116px]">
+      <section className="w-full flex flex-col bg-primary h-[186px] py-[30px] items-center justify-center gap-[33px] lg:flex-row lg:h-[116px] lg:gap-31">
         <div className="flex w-[276px] items-center justify-between">
           <img
             src={logo}
@@ -19,11 +19,11 @@ const Footer = () => {
             訂閱你我的甜蜜郵件
           </h3>
         </div>
-        <div className="flex w-full items-center h-14 relative px-[30px] lg:w-[380px] lg:p-0">
+        <div className="flex w-[315px] items-center h-14 relative lg:w-[380px] lg:p-0">
           <img
             src={mail_icon}
             alt=""
-            className="z-100 w-6 h-6 object-cover absolute left-[50px] lg:left-5"
+            className="z-100 w-6 h-6 object-cover absolute left-[20px] lg:left-5"
           />
           <input
             type="email"
@@ -31,7 +31,7 @@ const Footer = () => {
           />
           <button
             type="button"
-            className="px-5 py-4 bg-soft hover:bg-accent active:bg-accent"
+            className="w-16 h-14 flex items-center justify-center bg-soft hover:bg-accent active:bg-accent"
           >
             <img src={subscribe_btn_icon} alt="" className="h-6 w-6" />
           </button>
