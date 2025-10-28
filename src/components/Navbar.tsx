@@ -10,12 +10,12 @@ const Navbar: FC = () => {
     setNavbarShow(!navbarShow);
   };
   return (
-    <header className="w-full mx-auto sticky top-0 z-[100] bg-white py-[36px] lg:py-[30px] lg:max-w-[1024px]">
-      <nav className="mx-auto flex items-center justify-between w-full px-[33px] lg:max-w-[940px]">
+    <header className="w-full mx-auto sticky top-0 z-[100] bg-white py-[36px] md:max-w-[768px] lg:py-[30px] lg:max-w-[1024px]">
+      <nav className="mx-auto flex items-center justify-between w-full px-[33px] lg:max-w-[940px] md:max-w-[768px]">
         <button
           type="button"
           onClick={handleClick}
-          className="justify-self-start active:bg-accent/30 rounded-2xl lg:hidden"
+          className="justify-self-start active:bg-accent/30 rounded-2xl lg:hidden md:hidden"
         >
           <img src={menu_icon} alt="menu" />
         </button>
@@ -23,17 +23,17 @@ const Navbar: FC = () => {
           <img
             src={logo}
             alt="logo"
-            className="hidden lg:block h-[40px] w-auto object-cover"
+            className="hidden md:block lg:block h-[40px] w-auto object-cover"
           />
           <img
             src={logo_phone}
             alt="logo"
-            className="block h-[18px] w-auto object-cover lg:hidden"
+            className="block h-[18px] w-auto object-cover md:hidden lg:hidden "
           />
         </Link>
 
-        <div className="items-center justify-between lg:flex lg:max-w-[320px] lg:w-full">
-          <div className="hidden lg:max-w-[70%] lg:flex w-full items-center justify-between">
+        <div className=" items-center justify-between md:flex md:max-w-[246px] lg:flex lg:max-w-[320px] lg:w-full md:w-full">
+          <div className="hidden md:flex md:max-w-[166px] lg:max-w-[215px] lg:flex w-full items-center justify-between">
             <Link
               to="/"
               className="text-primary font-semibold hover:text-xl hover:shadow-2xl hover:shadow-primary"
