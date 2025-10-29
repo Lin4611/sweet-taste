@@ -46,17 +46,17 @@ const HomePage: FC = () => {
             className="w-full h-auto object-cover lg:h-[496px]"
           />
           <section className="mx-auto w-full grid grid-cols-3 lg:px-[42px] lg:mt-[-89px]">
-            <button type="button" onClick={() => goSeries("today")} className="flex">
+            <button type="button" onClick={() => goSeries("today")} className="block h-[180px] lg:h-[256px]">
               <CategoryCard imgUrl={today} title="本日精選" />
             </button>
-            <button type="button" onClick={() => goSeries("popular")} className="flex">
+            <button type="button" onClick={() => goSeries("popular")} className="block h-[180px] lg:h-[256px]">
               <CategoryCard
                 imgUrl={popular}
                 title="人氣推薦"
                 border="border-x-[1px] border-white"
               />
             </button>
-            <button type="button" onClick={() => goSeries("new")} className="flex">
+            <button type="button" onClick={() => goSeries("new")} className="block h-[180px] lg:h-[256px]">
               <CategoryCard imgUrl={new_product_pic} title="新品上市" />
             </button>
           </section>
@@ -76,7 +76,7 @@ const HomePage: FC = () => {
                   <p>樵江渚上，古今多少事，都付笑談中。</p>
                 </section>
               </section>
-              <div className="flex justify-between z-100 -mt-110 mx-[42px]">
+              <div className="flex justify-between z-[50] -mt-[110px] mx-[42px]">
                 <img
                   src={why_make_dessert_pic}
                   alt=""
@@ -101,7 +101,7 @@ const HomePage: FC = () => {
                   <p>樵江渚上，古今多少事，都付笑談中。</p>
                 </section>
               </section>
-              <div className="flex justify-end z-100 -mt-110 mx-[42px] gap-[42px]">
+              <div className="flex justify-end z-[50] -mt-[110px] mx-[42px] gap-[42px]">
                 <img
                   src={why_eat_dessert_title_desk}
                   alt=""
