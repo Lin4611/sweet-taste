@@ -20,7 +20,7 @@ import { useNavigate } from "react-router-dom";
 const HomePage: FC = () => {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-
+  const todayList = productList.filter(e=>e.series==="today");
   //切不同的商品列表
   const scrollPage = (dir: 1 | -1) => {
     const el = scrollerRef.current;
@@ -204,7 +204,7 @@ const HomePage: FC = () => {
                 "
                 ref={scrollerRef}
               >
-                {productList.map((p) => (
+                {todayList.map((p) => (
                   <div
                     key={p.id}
                     className="snap-start shrink-0 basis-full md:basis-1/2 lg:basis-[300px]"
