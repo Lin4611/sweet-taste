@@ -16,9 +16,12 @@ import want_to_eat_no_reason_title_desktop from "../assets/img/title-pic/desktop
 import { productList } from "../data/productList";
 import arrow_left from "../assets/img/icon/arrow_left.png";
 import arrow_right from "../assets/img/icon/arrow_right.png";
+import { useNavigate } from "react-router-dom";
 const HomePage: FC = () => {
   const scrollerRef = useRef<HTMLDivElement>(null);
-  
+  const navigate = useNavigate();
+
+  //切不同的商品列表
   const scrollPage = (dir: 1 | -1) => {
     const el = scrollerRef.current;
     if (!el) return;
@@ -27,6 +30,12 @@ const HomePage: FC = () => {
       behavior: "smooth",
     });
   };
+
+  //按下的是哪個系列
+  const goSeries = (s: "all" | "today" | "popular" | "new") => {
+    navigate(`/products`,{state:{series:s}});
+  };
+
   return (
     <>
       <main className="w-full mx-auto lg:max-w-[1024px]">
@@ -37,13 +46,19 @@ const HomePage: FC = () => {
             className="w-full h-auto object-cover lg:h-[496px]"
           />
           <section className="mx-auto w-full grid grid-cols-3 lg:px-[42px] lg:mt-[-89px]">
-            <CategoryCard imgUrl={today} title="本日精選" />
-            <CategoryCard
-              imgUrl={popular}
-              title="人氣推薦"
-              border="border-x-[1px] border-white"
-            />
-            <CategoryCard imgUrl={new_product_pic} title="新品上市" />
+            <button type="button" onClick={() => goSeries("today")} className="flex">
+              <CategoryCard imgUrl={today} title="本日精選" />
+            </button>
+            <button type="button" onClick={() => goSeries("popular")} className="flex">
+              <CategoryCard
+                imgUrl={popular}
+                title="人氣推薦"
+                border="border-x-[1px] border-white"
+              />
+            </button>
+            <button type="button" onClick={() => goSeries("new")} className="flex">
+              <CategoryCard imgUrl={new_product_pic} title="新品上市" />
+            </button>
           </section>
         </section>
         {/* 電腦排版 */}
@@ -172,7 +187,7 @@ const HomePage: FC = () => {
               <button
                 type="button"
                 className="hidden z-10 absolute bg-soft/100 rounded-full w-10 h-10 lg:flex items-center justify-center top-1/2 left-0 hover:bg-accent"
-                onClick={()=>scrollPage(-1)}
+                onClick={() => scrollPage(-1)}
               >
                 <img
                   src={arrow_left}
@@ -187,7 +202,7 @@ const HomePage: FC = () => {
                   [-ms-overflow-style:none] [scrollbar-width:none]
                   [&::-webkit-scrollbar]:hidden
                 "
-                 ref={scrollerRef}
+                ref={scrollerRef}
               >
                 {productList.map((p) => (
                   <div
@@ -205,7 +220,7 @@ const HomePage: FC = () => {
               <button
                 type="button"
                 className="hidden z-10 absolute bg-soft/100 rounded-full w-10 h-10 lg:flex items-center justify-center top-1/2 right-0 hover:bg-accent"
-                onClick={()=>scrollPage(1)}
+                onClick={() => scrollPage(1)}
               >
                 <img
                   src={arrow_right}
