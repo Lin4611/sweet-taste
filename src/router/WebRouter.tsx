@@ -3,10 +3,8 @@ import HomePage from "../pages/HomePage";
 import ProductListPage from "../pages/ProductListPage";
 import LoginPage from "../pages/LoginPage";
 import CartPage from "../pages/CartPage";
-import ShippingPage from "../pages/ShippingPage";
 import CheckoutSuccessPage from "../pages/CheckoutSuccessPage";
-import CheckoutPaymentPage from "../pages/CheckoutPaymentPage";
-import CheckoutInvoicePage from "../pages/CheckoutInvoicePage";
+import CheckoutPage from "../pages/CheckoutPage";
 
 const WebRouter = () => {
   return (
@@ -16,10 +14,8 @@ const WebRouter = () => {
       <Route path="/cart" element={<CartPage />} />
       <Route path="/login" element={<LoginPage />} />
 
-      <Route path="/checkout/shipping" element={<ShippingPage />} />
-      <Route path="/checkout/payment" element={<CheckoutPaymentPage />} />
-      <Route path="/checkout/invoice" element={<CheckoutInvoicePage />} />
-      <Route path="/checkout/success" element={<CheckoutSuccessPage />} />
+      <Route path="/checkout" element={<CheckoutPage />} />
+      <Route path="/success" element={<CheckoutSuccessPage />} />
     </Routes>
   );
 };

@@ -74,7 +74,7 @@ const CartPage:FC = () => {
             <button
               type="button"
               className="text-title text-primary font-semibold flex justify-center items-center bg-accent py-4 active:bg-soft hover:bg-soft"
-              onClick={() => navigate("/checkout/shipping")}
+              onClick={() => navigate("/checkout")}
             >
               結帳
             </button>
