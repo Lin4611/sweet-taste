@@ -1,11 +1,22 @@
 import arrow_up_icon from "/src/assets/img/icon/arrow_drop_up.svg";
 import arrow_down_icon from "/src/assets/img/icon/arrow_drop_down.svg";
-import type { FC } from "react";
+import { areaList } from "../../data/area";
+import { useEffect, useState, type FC } from "react";
 type ShippingStepProps = {
   onNext: () => void;
 };
 
 const ShippingStep: FC<ShippingStepProps> = ({ onNext }) => {
+  const [selectedCity,setSelectedCity] = useState<string>("高雄市");
+  const [selectedDis,setSelectedDis] = useState<string>("新興區");
+  const [disList,setDisList] = useState<string[]>(areaList[selectedCity]);
+  useEffect(()=>{
+    const newDisList=areaList[selectedCity];
+    setDisList(newDisList)
+    if(!newDisList.includes(selectedDis)){
+      setSelectedDis(newDisList[0])
+    }
+  },[selectedCity])
   return (
     <>
       <section className="w-full flex flex-col bg-primary">
@@ -66,12 +77,10 @@ const ShippingStep: FC<ShippingStepProps> = ({ onNext }) => {
               </p>
               <div className="w-full flex gap-[9px]">
                 <div className="w-full relative flex py-[17px] bg-soft text-muted">
-                  <select name="city" className="w-full pl-5 appearance-none ">
-                    <option value="高雄市">高雄市</option>
-                    <option value="台南市">台南市</option>
-                    <option value="嘉義市">嘉義市</option>
-                    <option value="屏東市">屏東市</option>
-                    <option value="雲林市">雲林市</option>
+                  <select name="city" className="w-full pl-5 appearance-none" value={selectedCity} onChange={(e)=>setSelectedCity(e.target.value)}>
+                    {Object.keys(areaList).map((c)=>(
+                      <option value={c} key={c}>{c}</option>
+                    ))}
                   </select>
                   <div className="flex flex-col justify-center items-center absolute right-5 top-3">
                     <img
@@ -87,12 +96,10 @@ const ShippingStep: FC<ShippingStepProps> = ({ onNext }) => {
                   </div>
                 </div>
                 <div className="w-full relative flex py-[17px] bg-soft text-muted">
-                  <select name="dist" className="w-full pl-5 appearance-none">
-                    <option value="新興區">新興區</option>
-                    <option value="三民區">三民區</option>
-                    <option value="小港區">小港區</option>
-                    <option value="前鎮區">前鎮區</option>
-                    <option value="鼓山區">鼓山區</option>
+                  <select name="dist" className="w-full pl-5 appearance-none" value={selectedDis}>
+                    {disList.map((d)=>(
+                      <option key={d} value={d}>{d}</option>
+                      ))}
                   </select>
                   <div className="flex flex-col justify-center items-center absolute right-5 top-3">
                     <img
