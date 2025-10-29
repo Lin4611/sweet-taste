@@ -76,7 +76,7 @@ const HomePage: FC = () => {
                   <p>樵江渚上，古今多少事，都付笑談中。</p>
                 </section>
               </section>
-              <div className="flex justify-between z-[50] -mt-[110px] mx-[42px]">
+              <div className="flex justify-between z-[50] -mt-110 mx-[42px]">
                 <img
                   src={why_make_dessert_pic}
                   alt=""
@@ -101,7 +101,7 @@ const HomePage: FC = () => {
                   <p>樵江渚上，古今多少事，都付笑談中。</p>
                 </section>
               </section>
-              <div className="flex justify-end z-[50] -mt-[110px] mx-[42px] gap-[42px]">
+              <div className="flex justify-end z-[50] -mt-110 mx-[42px] gap-[42px]">
                 <img
                   src={why_eat_dessert_title_desk}
                   alt=""
