@@ -124,7 +124,7 @@ const LoginPage: FC = () => {
             </section>
             <button
               type="button"
-              className="w-full text-title font-semibold text-primary h-[65px] bg-accent border-accent active:bg-soft"
+              className="w-full text-title font-semibold text-primary h-[65px] bg-accent border-accent transition-all duration-200 ease-out hover:bg-accent hover:shadow-primary hover:shadow-lg active:bg-soft"
             >
               登入帳號
             </button>

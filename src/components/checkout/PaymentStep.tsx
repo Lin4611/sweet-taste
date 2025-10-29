@@ -131,7 +131,7 @@ const PaymentStep: FC<PaymentStepProps> = ({ onNext }) => {
         </div>
         <button
           type="button"
-          className="w-full h-[65px] text-title font-semibold text-primary bg-accent flex items-center justify-center active:bg-soft hover:bg-soft"
+          className="w-full h-[65px] text-title font-semibold text-primary bg-accent flex items-center justify-center transition-all duration-200 ease-out hover:bg-accent hover:shadow-primary hover:shadow-lg active:bg-soft"
           onClick={onNext}
         >
           下一步

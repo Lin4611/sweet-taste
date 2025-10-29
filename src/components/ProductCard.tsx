@@ -30,8 +30,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ imgUrl, title, price }) => {
         </section>
         <button
           type="button"
-          className="w-full h-[65px] bg-soft/100 border-1 border-soft text-title text-primary leading-5 flex justify-center items-center 
-          active:bg-primary/100 active:text-invert hover:bg-primary/100 hover:text-invert" 
+          className="w-full h-[65px] bg-soft/100 border-1 border-soft text-title text-primary leading-5 flex justify-center items-center transition-all duration-200 ease-out
+          active:bg-accent/100 hover:bg-primary/100 hover:text-invert"
         >
           加入購物車
         </button>

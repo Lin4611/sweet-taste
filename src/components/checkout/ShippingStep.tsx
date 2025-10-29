@@ -118,7 +118,7 @@ const ShippingStep: FC<ShippingStepProps> = ({ onNext }) => {
         </div>
         <button
           type="button"
-          className="text-title text-primary font-semibold bg-accent w-full py-[15px] hover:bg-soft"
+          className="text-title text-primary font-semibold bg-accent w-full py-[15px] transition-all duration-200 ease-out hover:bg-accent hover:shadow-primary hover:shadow-lg active:bg-soft"
           onClick={onNext}
         >
           下一步

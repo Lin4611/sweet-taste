@@ -24,7 +24,7 @@ const CheckoutSuccessPage:FC = () => {
             <Link to="/products">
               <button
                 type="button"
-                className="hidden lg:block w-[300px] h-[65px] text-title text-primary font-semibold bg-accent active:bg-soft hover:bg-soft"
+                className="hidden lg:block w-[300px] h-[65px] text-title text-primary font-semibold bg-accent transition-all duration-200 ease-out hover:bg-accent hover:shadow-primary hover:shadow-lg active:bg-soft"
               >
                 繼續逛逛
               </button>
@@ -33,7 +33,7 @@ const CheckoutSuccessPage:FC = () => {
           <Link to="/products">
             <button
               type="button"
-              className="lg:hidden block w-full h-[65px] text-title text-primary font-semibold bg-accent active:bg-soft hover:bg-soft"
+              className="lg:hidden block w-full h-[65px] text-title text-primary font-semibold bg-accent transition-all duration-200 ease-out hover:bg-accent hover:shadow-primary hover:shadow-lg active:bg-soft"
             >
               繼續逛逛
             </button>
