@@ -68,10 +68,10 @@ const Navbar: FC = () => {
           navbarShow ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="flex flex-col w-full items-center pt-[36px]">
+        <div className="flex flex-col w-full items-center py-6 gap-4">
           <Link
             to="/"
-            className="text-primary font-semibold hover:text-xl active:bg-accent/30 active:rounded-2xl"
+            className="text-title text-primary font-semibold active:bg-accent/30 active:rounded-2xl"
             onClick={() => {
               setNavbarShow(false);
             }}
@@ -80,7 +80,7 @@ const Navbar: FC = () => {
           </Link>
           <Link
             to="/products"
-            className="text-primary font-semibold hover:text-xl active:bg-accent/30 active:rounded-2xl"
+            className="text-title text-primary font-semibold active:bg-accent/30 active:rounded-2xl"
             onClick={() => {
               setNavbarShow(false);
             }}
@@ -89,7 +89,7 @@ const Navbar: FC = () => {
           </Link>
           <Link
             to="/login"
-            className="text-primary font-semibold hover:text-xl active:bg-accent/30 active:rounded-2xl"
+            className="text-title text-primary font-semibold active:bg-accent/30 active:rounded-2xl"
             onClick={() => {
               setNavbarShow(false);
             }}
