@@ -11,35 +11,46 @@ const mobileItems: number = 3;
 const desktopItems: number = 6;
 
 const ProductListPage: FC = () => {
+  //目前顯示的頁數
   const [currentPage, setCurrentPage] = useState<number>(1);
+  //一頁顯示幾個
   const [itemsPrePage, setItemsPrePage] = useState(
     window.matchMedia("(max-width:640px)").matches ? mobileItems : desktopItems
   );
 
   const location = useLocation();
-  const state = location.state as { series?: "all" | "today" | "popular" | "new" } | null;
+  //設定一開始的類別資料
+  const state = location.state as {
+    series?: "all" | "today" | "popular" | "new";
+  } | null;
+  //商品的資料
   const [productCategoryList, setProductCategoryList] = useState(productList);
+  //目前顯示的分類
   const [category, setCategory] = useState<"all" | "today" | "new" | "popular">(
     "all"
   );
-
+  //計算總共的頁數
   const totalPages = Math.ceil(productCategoryList.length / itemsPrePage);
-
+  
+  //計算目前頁面顯示的商品，目前頁數或是商品的資料改變或裝置的尺寸改變就更新顯示商品。
   const pageProducts = useMemo(() => {
     const start = (currentPage - 1) * itemsPrePage;
     const end = start + itemsPrePage;
     return productCategoryList.slice(start, end);
   }, [productCategoryList, currentPage, itemsPrePage]);
-
+  //去前一頁的函式最前面的頁面是第一頁
   const goToPrev = () => setCurrentPage((p) => Math.max(1, p - 1));
+  //去下一頁的函式最後一頁是計算出來的總頁數
   const goToNext = () => setCurrentPage((p) => Math.min(totalPages, p + 1));
-
+  //可視的頁數，目前頁面和最後一頁交給函式計算下方的切換頁面按鈕。
   const visiblePages = getVisiblePages(currentPage, totalPages);
+  
   //去往目標頁數
   const goToPages = (page: number) => {
     if (page < 1 || page > totalPages) return;
     setCurrentPage(page);
   };
+  
   //判斷按下的標籤是哪個分類
   const handleCategory = (c: "all" | "today" | "new" | "popular") => {
     setCurrentPage(1);
@@ -48,7 +59,7 @@ const ProductListPage: FC = () => {
       c === "all" ? productList : productList.filter((e) => e.series === c)
     );
   };
-  
+  //當從首頁切過來時有沒有帶值，若有的話就依照該分類給商品。
   useEffect(() => {
     if (state?.series) {
       setCategory(state.series);
@@ -131,6 +142,7 @@ const ProductListPage: FC = () => {
                 {`（${productList.filter((e) => e.series == "new").length}）`}
               </li>
             </ul>
+
             <div className="flex flex-col gap-[30px] items-center">
               <section className="py-[30px] px-[30px] grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-2 lg:p-0">
                 {pageProducts.map((p, i) => (
