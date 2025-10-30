@@ -4,10 +4,11 @@ import heart_fill from "../assets/img/icon/heart-fill.svg";
 interface ProductCardProps {
   imgUrl: string;
   title: string;
+  series:string;
   price: string;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ imgUrl, title, price }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ imgUrl, title, price,series }) => {
   const [addlike, setAddLike] = useState(false);
   const hadnleClick = () => setAddLike(!addlike);
   return (
@@ -37,7 +38,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ imgUrl, title, price }) => {
         </button>
         <section className="flex justify-between -mt-[435px] px-5">
           <div className="vertical-text bg-primary/100 w-[36px] h-[107px] text-soft/100 leading-5 flex justify-center items-center tracking-[0.25rem]">
-            <p>本日精選</p>
+            <p>{series}</p>
           </div>
           <button
             type="button"
