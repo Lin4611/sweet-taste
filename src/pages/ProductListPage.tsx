@@ -139,6 +139,7 @@ const ProductListPage: FC = () => {
                     imgUrl={p.imgUrl}
                     title={p.title}
                     price={p.price}
+                    series={p.series==="today" ? "本日精選" : p.series === "new" ? "新品上市" : "人氣推薦"}
                   />
                 ))}
               </section>

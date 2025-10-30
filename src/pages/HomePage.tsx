@@ -213,6 +213,7 @@ const HomePage: FC = () => {
                       imgUrl={p.imgUrl}
                       title={p.title}
                       price={p.price}
+                      series="本日精選"
                     />
                   </div>
                 ))}
