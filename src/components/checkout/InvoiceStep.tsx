@@ -11,13 +11,13 @@ const InvoiceStep: FC = () => {
   const [selectedCity, setSelectedCity] = useState<string>("高雄市");
   const [selectedDis, setSelectedDis] = useState<string>("新興區");
   const [disList, setDisList] = useState<string[]>(areaList[selectedCity]);
-  useEffect(() => {
-    const newDisList = areaList[selectedCity];
-    setDisList(newDisList);
-    if (!newDisList.includes(selectedDis)) {
-      setSelectedDis(newDisList[0]);
+  useEffect(()=>{
+    const newDisList=areaList[selectedCity];
+    setDisList(newDisList)
+    if(selectedCity === "高雄市"){
+      setSelectedDis('新興區')
     }
-  }, [selectedCity]);
+  },[selectedCity])
   const navigate = useNavigate();
   return (
     <>
@@ -105,7 +105,7 @@ const InvoiceStep: FC = () => {
                       name="city"
                       className="w-full pl-5 appearance-none"
                       value={selectedCity}
-                      onChange={(e)=>setSelectedCity(e.target.value)}
+                      onChange={(e) => setSelectedCity(e.target.value)}
                     >
                       {Object.keys(areaList).map((c) => (
                         <option value={c} key={c}>
@@ -127,7 +127,12 @@ const InvoiceStep: FC = () => {
                     </div>
                   </div>
                   <div className="w-full relative flex py-[17px] bg-soft text-muted">
-                    <select name="dist" className="w-full pl-5 appearance-none" value={selectedDis}>
+                    <select
+                      name="dist"
+                      className="w-full pl-5 appearance-none"
+                      value={selectedDis}
+                      onChange={(e) => setSelectedDis(e.target.value)}
+                    >
                       {disList.map((d) => (
                         <option key={d} value={d}>
                           {d}

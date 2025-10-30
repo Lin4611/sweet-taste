@@ -13,8 +13,8 @@ const ShippingStep: FC<ShippingStepProps> = ({ onNext }) => {
   useEffect(()=>{
     const newDisList=areaList[selectedCity];
     setDisList(newDisList)
-    if(!newDisList.includes(selectedDis)){
-      setSelectedDis(newDisList[0])
+    if(selectedCity === "高雄市"){
+      setSelectedDis('新興區')
     }
   },[selectedCity])
   return (
@@ -96,7 +96,7 @@ const ShippingStep: FC<ShippingStepProps> = ({ onNext }) => {
                   </div>
                 </div>
                 <div className="w-full relative flex py-[17px] bg-soft text-muted">
-                  <select name="dist" className="w-full pl-5 appearance-none" value={selectedDis}>
+                  <select name="dist" className="w-full pl-5 appearance-none" value={selectedDis} onChange={(e)=>setSelectedDis(e.target.value)}>
                     {disList.map((d)=>(
                       <option key={d} value={d}>{d}</option>
                       ))}
