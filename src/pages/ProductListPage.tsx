@@ -49,6 +49,10 @@ const ProductListPage: FC = () => {
     );
   };
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+
+  useEffect(() => {
     if (state?.series) {
       setCategory(state.series);
       setProductCategoryList(
@@ -139,7 +143,13 @@ const ProductListPage: FC = () => {
                     imgUrl={p.imgUrl}
                     title={p.title}
                     price={p.price}
-                    series={p.series==="today" ? "本日精選" : p.series === "new" ? "新品上市" : "人氣推薦"}
+                    series={
+                      p.series === "today"
+                        ? "本日精選"
+                        : p.series === "new"
+                        ? "新品上市"
+                        : "人氣推薦"
+                    }
                   />
                 ))}
               </section>
