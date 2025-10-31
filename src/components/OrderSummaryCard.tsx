@@ -1,3 +1,4 @@
+import type { FC } from "react";
 import p1 from "../assets/img/p-1.png";
 import p2 from "../assets/img/p-2.png";
 import p3 from "../assets/img/p-3.png";
@@ -25,7 +26,7 @@ const shippingProductList = [
   },
 ];
 
-const OrderSummaryCard = () => {
+const OrderSummaryCard:FC = () => {
   return (
     <section className="hidden md:flex md:w-full md:max-w-[300px] lg:flex lg:max-w-[300px] lg:w-full">
       <section className="w-full flex flex-col gap-4">

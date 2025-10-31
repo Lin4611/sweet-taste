@@ -5,7 +5,8 @@ import logo_title from "../assets/img/logo/logotype-sm-dark.svg";
 import facebook_icon from "../assets/img/icon/ic-facebook.svg";
 import line_icon from "../assets/img/icon/ic-line@.svg";
 import today_is_goodday_title from "../assets/img/title-pic/footer-title.png";
-const Footer = () => {
+import type { FC } from "react";
+const Footer:FC = () => {
   return (
     <footer className="w-full mx-auto flex flex-col lg:max-w-[1024px]">
       <section className="w-full flex flex-col bg-primary h-[186px] py-[30px] items-center justify-center gap-[33px] lg:flex-row lg:h-[116px] lg:gap-31">

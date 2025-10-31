@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, type FC } from "react";
 import ShippingStep from "../components/checkout/ShippingStep";
 import PaymentStep from "../components/checkout/PaymentStep";
 import OrderSummaryCard from "../components/OrderSummaryCard";
 import InvoiceStep from "../components/checkout/InvoiceStep";
-const CheckoutPage = () => {
+const CheckoutPage:FC = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
   const handleNextstep = () => {
     if (currentStep < 3) setCurrentStep(currentStep + 1);
