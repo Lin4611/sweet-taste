@@ -73,7 +73,7 @@ const CartPage:FC = () => {
 
             <button
               type="button"
-              className="text-title text-primary font-semibold flex justify-center items-center bg-accent py-4 active:bg-soft hover:bg-soft"
+              className="w-full text-title font-semibold text-primary h-[65px] bg-accent border-accent transition-all duration-200 ease-out hover:bg-accent hover:shadow-primary hover:shadow-lg active:bg-soft"
               onClick={() => navigate("/checkout")}
             >
               結帳
